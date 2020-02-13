@@ -2,11 +2,66 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Webpack</title>
-    <link rel="stylesheet" href="style.c7cdfffafea6af54cfde.css">
+    <title>News Explorer</title>
+    <link rel="stylesheet" href="main/main.6322f685e2a65ab4db22.css">
 </head>
 <body>
-    <h1>Hello</h1>
-    <script src="main.9d35788d57b089bcd15f.js"></script>
+    <div class='page'>
+      <header class='header'>
+        <img class='logo' src="./images/newsexplorer.svg" alt='logo'>
+        <menu class='menu'>
+          <li class='menu__item menu__item_active'>Главная</li>
+          <li class='menu__item'>Сохраненные статьи</li>
+          <button class="button button_auth">Авторизоваться</button>
+        </menu>
+      </header>
+      <section class='search'>
+        <div class="search__container">
+          <h1 class="search__title">Что в мире творится?</h1>
+          <p class="text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+          <form action="" class="search__form">
+            <input class="search__input" type="text" placeholder="Введите тему новости">
+            <button class="button button_input">Искать</button>
+          </form>
+        </div>
+      </section>
+      <section>
+        <div class="preloader">
+          <i class="preloader__circle-preloader"></i>
+          <p class="preloader__text">Идет поиск новостей</p>
+        </div>
+      </section>
+      <section class='about'>
+        <picture>
+          <source srcset="./images/author-photo.jpg" type="image/svg+xml">
+          <img class='about__photo' src="./images/author-photo.jpg" alt="MDN">
+        </picture>
+        <div class="description">
+          <h2 class="about__heading">Об авторе</h2>
+          <p class="text">
+            Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+          <p class="text">
+            Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+          </p>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="footer__site">&copy; 2020 Supersite</p>
+        <div class="footer__menu">
+          <a class="footer__menu-item" href="index.html" target='_blank'>Главная</p>
+          <a class="footer__menu-item" href="https://praktikum.yandex.ru/" target='_blank'>Яндекс.Практикум</a>
+        </div>
+        <div class="footer__icons-container">
+          <a class='footer__link' href="https://github.com/dissidance" target='_blank'>
+            <img class="footer__icon" src="./images/github-icon.png" alt="github logo">
+          </a>
+          <a class='footer__link' href="https://www.facebook.com/profile.php?id=100045003390633">
+            <img class="footer__icon" src="./images/facebook-icon.png" alt="fb logo">
+          </a>
+        </div>
+      </footer>
+    </div>
+    <script src="main/main.6e8ec774c971299c7bdc.js"></script>
 </body>
 </html>
