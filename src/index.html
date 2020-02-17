@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>News Explorer</title>
+    <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.png').default%>">
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class='page'>
+      <header class='header'>
+        <img class='logo' src="<%=require('./images/newsexplorer.svg').default%>" alt='logo'>
+        <menu class='menu'>
+          <li class='menu__item menu__item_active'>Главная</li>
+          <li class='menu__item'>Сохраненные статьи</li>
+          <button class="button button_auth">Авторизоваться</button>
+        </menu>
+      </header>
+      <section class='search'>
+        <div class="search__container">
+          <h1 class="search__title">Что в мире творится?</h1>
+          <p class="text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+          <form action="" class="search__form">
+            <input class="search__input" type="text" placeholder="Введите тему новости">
+            <button class="button button_input">Искать</button>
+          </form>
+        </div>
+      </section>
+      <section class="content">
+        <div class="cards">
+          <h2 class="cards__title">Результаты поиска</h2>
+          <div class="cards__container">
+            <div class="card">
+              <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+                <img src="<%=require('./images/image_08.png').default%>" alt="" class="card__image">
+                <p class="card__date">2 августа, 2019</p>
+                <h3 class="card__title">Национальное достояние – парки</h3>
+                <p class="card__subtitle">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                  начала складываться система национальных парков – охраняемых территорий,
+                  где и сегодня каждый может приобщиться к природе.
+                </p>
+                <a class="card__source" href='https://lenta.ru/' target='_blank'>лента.ру</a>
+              </a>
+            </div>
+            <div class="card">
+              <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+                <img src="<%=require('./images/image_04.png').default%>" alt="" class="card__image">
+                <p class="card__date">2 августа, 2019</p>
+                <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
+                <p class="card__subtitle">Фотограф отвлеклась от освещения суровой политической реальности Мексики,
+                  чтобы запечатлеть ускользающую красоту одного
+                  из местных чудес природы.
+                </p>
+                <a class="card__source" href='https://meduza.io/' target='_blank'>медуза</a>
+              </a>
+            </div>
+            <div class="card">
+              <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+                <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
+                  <p class="card__date">2 августа, 2019</p>
+                  <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                  <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                    чтобы рассказать о необходимости их сохранения.
+                    В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                  </p>
+                <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+              </a>
+            </div>
+            <div class="card">
+              <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+                <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
+                  <p class="card__date">2 августа, 2019</p>
+                  <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                  <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                    чтобы рассказать о необходимости их сохранения.
+                    В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                  </p>
+                <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+              </a>
+            </div>
+            <div class="card">
+              <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+                <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
+                  <p class="card__date">2 августа, 2019</p>
+                  <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                  <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                    чтобы рассказать о необходимости их сохранения.
+                    В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                  </p>
+                <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+              </a>
+            </div>
+          </div>
+          <button class="cards__button">Показать еще</button>
+        </div>
+        <div class="preloader">
+          <i class="preloader__circle-preloader"></i>
+          <p class="preloader__text">Идет поиск новостей...</p>
+        </div>
+        <div class="not-found">
+          <img src="<%=require('./images/not-found.png').default%>" alt="" class="not-found__image">
+          <h2 class="not-found__heading">Ничего не найдено</h2>
+          <p class="text text_color_grey">К сожалению по вашему запросу ничего не найдено.</p>
+        </div>
+      </section>
+      <section class='about'>
+        <img class='about__photo' src="<%=require('./images/author-photo.jpg').default%>" alt="MDN">
+        <div class="description">
+          <h2 class="about__heading">Об авторе</h2>
+          <p class="text text_about">
+            Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+          </p>
+          <p class="text text_about">
+            Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+          </p>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="footer__site">&copy; 2020 Supersite</p>
+        <div class="footer__menu">
+          <a class="footer__menu-item" href="index.html">Главная</p>
+          <a class="footer__menu-item" href="https://praktikum.yandex.ru/" target='_blank'>Яндекс.Практикум</a>
+        </div>
+        <div class="footer__icons-container">
+          <a class='footer__link' href="https://github.com/dissidance" target='_blank'>
+            <img class="footer__icon" src="<%=require('./images/github-icon.svg').default%>" alt="github logo">
+          </a>
+          <a class='footer__link' href="https://www.facebook.com/profile.php?id=100045003390633">
+            <img class="footer__icon" src="<%=require('./images/facebook-icon.svg').default%>" alt="fb logo">
+          </a>
+        </div>
+      </footer>
+    </div>
+    <script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

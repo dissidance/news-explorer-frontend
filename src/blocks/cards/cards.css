@@ -1,0 +1,18 @@
+@import url(./__title/cards__title.css);
+@import url(./__container/cards__container.css);
+@import url(./__button/cards__button.css);
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(100% - 208px);
+  margin: 0 auto;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+  .cards {
+    max-width: calc(100% - 80px);
+  }
+}

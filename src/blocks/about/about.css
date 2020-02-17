@@ -1,0 +1,10 @@
+@import url(./__photo/about__photo.css);
+@import url(./__heading/about__heading.css);
+
+.about {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: normal;
+  display: flex;
+  background-color: #fff;
+}

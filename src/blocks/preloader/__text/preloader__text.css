@@ -1,0 +1,15 @@
+.preloader__text {
+  position: absolute;
+	top: 100px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+  margin: auto;
+
+  font-size: 18px;
+  line-height: 24px;
+  width: 280px;
+  height: 24px;
+  text-align: center;
+  color: #B6BCBF;
+}

@@ -1,0 +1,19 @@
+.card__date {
+  margin: 20px 0 12px 24px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #B6BCBF;
+}
+
+@media screen and (max-width: 1439px) {
+  .card__date {
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card__date {
+    margin: 8px 0 8px 16px;
+  }
+}

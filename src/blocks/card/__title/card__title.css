@@ -1,0 +1,22 @@
+.card__title {
+  margin: 0 auto 16px;
+  width: calc(100% - 48px);
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+}
+
+@media screen and (max-width: 1439px) {
+  .card__title {
+    font-size: 24px;
+    margin: 0 auto 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card__title {
+    font-size: 22px;
+    line-height: 24px;
+    width: calc(100% - 32px);
+  }
+}

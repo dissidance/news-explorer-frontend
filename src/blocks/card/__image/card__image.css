@@ -1,0 +1,15 @@
+.card__image {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .card__image {
+    font-size: 22px;
+    line-height: 24px;
+    max-height: 150px;
+  }
+}

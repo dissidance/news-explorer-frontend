@@ -1,0 +1,29 @@
+@import url(./__date/card__date.css);
+@import url(./__image/card__image.css);
+@import url(./__subtitle/card__subtitle.css);
+@import url(./__title/card__title.css);
+@import url(./__source/card__source.css);
+@import url(./__wrapper/card__wrapper.css);
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 576px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.card:hover {
+  box-shadow: 0 20px 100px rgba(104, 104, 104, 0.1);
+  transition: box-shadow 0.2s linear 0.1s;
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    height: 430px;
+  }
+}

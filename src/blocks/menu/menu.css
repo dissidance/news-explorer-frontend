@@ -1,0 +1,7 @@
+@import url(./__item/menu__item.css);
+
+.menu {
+  margin: auto;
+  display: flex;
+  margin-right: 104px;
+}

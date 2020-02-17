@@ -1,0 +1,35 @@
+.search__input {
+  width: 95%;
+  height: 64px;
+  margin: 0;
+  line-height: 22px;
+  padding: 21px 208px 21px 24px;
+  border-radius: 100px;
+  box-sizing: border-box;
+  border: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  outline: none;
+}
+
+.search__input::placeholder {
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+}
+
+.search__input:focus {
+  font-size: 16px;
+  line-height: 22px;
+  color: black;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  caret-color: #2F71E5;
+}

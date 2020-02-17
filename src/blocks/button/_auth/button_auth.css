@@ -1,0 +1,11 @@
+.button_auth {
+  background: none;
+  width: 176px;
+  height: 48px;
+  box-shadow: none;
+  border: 1px solid #fff;
+}
+
+.button_auth:hover {
+  background: none;
+}

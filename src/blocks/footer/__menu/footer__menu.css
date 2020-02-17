@@ -1,0 +1,5 @@
+.footer__menu {
+  display: flex;
+  align-self: center;
+  height: 22px;
+}
