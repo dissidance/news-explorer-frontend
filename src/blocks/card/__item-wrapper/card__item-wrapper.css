@@ -1,0 +1,16 @@
+.card__item-wrapper {
+  height: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card__item-wrapper:last-child {
+  margin-left: 5px;
+}
+
+.card__item-wrapper:hover > .card__icon > path {
+  stroke: #1A1B22;
+}

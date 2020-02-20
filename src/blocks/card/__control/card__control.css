@@ -1,0 +1,11 @@
+.card__control {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card__control:hover > #hint {
+  display: flex;
+}

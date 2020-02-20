@@ -13,6 +13,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .cards__container {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .cards__container {
     grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
