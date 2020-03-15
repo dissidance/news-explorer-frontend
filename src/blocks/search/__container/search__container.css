@@ -3,3 +3,28 @@
   margin: 0 auto;
   padding-top: 240px;
 }
+
+@media screen and (max-width: 1024px) {
+  .search__container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .search__container {
+    width: calc(100% - 320px);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .search__container {
+    width: calc(100% - 120px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search__container {
+    width: calc(100% - 32px);
+    padding-top: 160px;
+  }
+}

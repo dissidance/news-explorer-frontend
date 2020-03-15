@@ -2,3 +2,11 @@
   align-self: center;
   display: flex;
 }
+
+@media screen and (max-width: 600px) {
+  .footer__icons-container {
+    align-self: flex-start;
+    display: flex;
+    margin-left: 30px;
+  }
+}

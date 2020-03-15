@@ -27,8 +27,36 @@
   transition: box-shadow 0.2s linear 0.1s;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .card {
-    height: 430px;
+    height: 470px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    min-height: 430px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    min-height: 470px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    min-height: 540px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card {
+    min-height: 500px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .card {
+    min-height: 446px;
   }
 }

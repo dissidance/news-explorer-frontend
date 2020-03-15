@@ -11,6 +11,6 @@
   margin-left: 5px;
 }
 
-.card__item-wrapper:hover > .card__icon > path {
+.card__item-wrapper:hover > .card__item > path {
   stroke: #1A1B22;
 }

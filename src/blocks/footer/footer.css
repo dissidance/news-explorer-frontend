@@ -1,4 +1,4 @@
-@import url(./__site/footer__site.css);
+@import url(./__site/footer__description.css);
 @import url(./__menu/footer__menu.css);
 @import url(./__menu-item/footer__menu-item.css);
 @import url(./__link/footer__link.css);
@@ -8,6 +8,23 @@
 .footer {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   background-color: #fff;
   padding: 0 105px;
+  margin-top: -1px;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer {
+    padding: 60px 16px 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    width: calc(100% - 32px);
+    padding: 0 16px;
+    min-height: 64px;
+    flex-wrap: wrap;
+  }
 }

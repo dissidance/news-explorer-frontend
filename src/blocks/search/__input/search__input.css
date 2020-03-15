@@ -3,7 +3,7 @@
   height: 64px;
   margin: 0;
   line-height: 22px;
-  padding: 21px 208px 21px 24px;
+  padding: 21px 150px 21px 24px;
   border-radius: 100px;
   box-sizing: border-box;
   border: none;
@@ -32,4 +32,13 @@
   font-style: normal;
   font-weight: normal;
   caret-color: #2F71E5;
+}
+
+@media screen and (max-width: 600px) {
+  .search__input {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 21px;
+    height: 56px;
+  }
 }

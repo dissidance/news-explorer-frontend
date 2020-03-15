@@ -7,4 +7,12 @@
   font-weight: normal;
   display: flex;
   background-color: #fff;
+  padding-bottom: 80px;
+  margin-top: -1px;
+}
+
+@media screen and (max-width: 650px) {
+  .about {
+    flex-direction: column;
+  }
 }

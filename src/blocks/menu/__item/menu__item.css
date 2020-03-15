@@ -3,13 +3,36 @@
   cursor: pointer;
   text-align: center;
   text-align: center;
+  font-size: 18px;
+  line-height: 24px;
   margin-right: 32px;
   padding: 30px 0 23px;
   color: #B6BCBF;
   border-bottom: 3px solid transparent;
+  z-index: 1;
 }
 
 .menu__item:hover {
   border-bottom: 3px solid #fff;
   transition: border-bottom .1s linear .1s;
+}
+
+@media screen and (max-width: 1023px) {
+  .menu__item {
+    font-size: 18px;
+    margin-right: 16px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .menu__item {
+    font-size: 18px;
+    margin-right: 16px;
+    line-height: 18px;
+    margin-right: 0;
+  }
+
+  .menu__item:hover {
+    border-bottom: 3px solid transparent;
+  }
 }

@@ -2,4 +2,11 @@
   width: 356px;
   text-align: center;
   color: #B6BCBF;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .text_color_grey {
+    width: 90%;
+  }
 }

@@ -4,8 +4,30 @@
   height: 48px;
   box-shadow: none;
   border: 1px solid #fff;
+  z-index: 1;
 }
 
 .button_auth:hover {
   background: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .button_auth {
+    height: 40px;
+    margin-top: 16px;
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .button_auth {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .button_auth {
+    width: 100%;
+    margin: 0;
+  }
 }

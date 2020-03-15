@@ -2,8 +2,20 @@
   padding: 0 20px;
   cursor: pointer;
   text-decoration: none;
+  height: 22px;
 }
 
 .footer__menu-item:visited {
   color: #1A1B22;
+}
+
+.footer__menu-item:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .footer__menu-item {
+    padding: 0;
+    margin-bottom: 20px;
+  }
 }

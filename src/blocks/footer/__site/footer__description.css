@@ -1,0 +1,17 @@
+.footer__description {
+  color: #B6BCBF;
+}
+
+
+@media screen and (min-width: 390px) and (max-width: 480px) {
+  .footer__description {
+    order: 1;
+    margin-right: 60px;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .footer__description {
+    order: 2;
+  }
+}

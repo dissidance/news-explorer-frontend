@@ -5,11 +5,9 @@
   border: none;
 }
 
-
 @media screen and (max-width: 1024px) {
   .card__image {
     font-size: 22px;
     line-height: 24px;
-    max-height: 150px;
   }
 }
