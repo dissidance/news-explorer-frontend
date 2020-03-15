@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Webpack</title>
-    <link rel="stylesheet" href="../main/main.821c81283cb1bcc056be.css">
+  <meta charset="UTF-8">
+  <meta name="author" content="Max Zhivaev">
+  <meta name="description" content="Веб-приложение для поиска новостей">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News Explorer</title>
+  <link rel="stylesheet" href="../favorites/favorites.188dab1504404f333d18.css">
+  <link rel="shortcut icon" type="image/png" href=".././images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello</h1>
-    <script src="../main/main.6e8ec774c971299c7bdc.js"></script>
+  <div class="page">
+    <header class='header'>
+      <img class='logo' src=".././images/newsexplorer.svg" alt='logo'>
+      <img src=".././images/menu.svg" class="header__button">
+      <menu class='menu'>
+        <a class='menu__item menu__item_active' href='../'>Главная</a>
+        <a class='menu__item' href='./index.html'>Сохраненные статьи</a>
+        <button class="button button_auth">Авторизоваться</button>
+      </menu>
+      <div class='background'></div>
+    </header>
+  </div>
+  <script src="../favorites/favorites.42e3dd20bdbd8eae4afa.js"></script>
 </body>
 </html>
