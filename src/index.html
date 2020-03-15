@@ -6,8 +6,8 @@
   <meta name="description" content="Веб-приложение для поиска новостей">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>News Explorer</title>
-  <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.png').default%>">
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.svg').default%>">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,8 +16,8 @@
         <img class='logo' src="<%=require('./images/newsexplorer.svg').default%>" alt='logo'>
         <img src="<%=require('./images/menu.svg').default%>" class="header__button">
         <menu class='menu'>
-          <li class='menu__item menu__item_active'>Главная</li>
-          <li class='menu__item'>Сохраненные статьи</li>
+          <a class='menu__item menu__item_active' href='./index.html'>Главная</a>
+          <a class='menu__item' href='./favorites/index.html'>Сохраненные статьи</a>
           <button class="button button_auth">Авторизоваться</button>
         </menu>
         <div class='background'></div>

@@ -14,10 +14,6 @@
 
 @media screen and (max-width: 710px) {
   .header {
-    background-color: #1A1B22;
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 56px;
   }

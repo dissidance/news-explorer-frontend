@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Webpack</title>
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  <meta charset="UTF-8">
+  <meta name="author" content="Max Zhivaev">
+  <meta name="description" content="Веб-приложение для поиска новостей">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News Explorer</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.favorites.css%>">
+  <link rel="shortcut icon" type="image/png" href="../<%=require('../images/favicon.svg').default%>">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello</h1>
-    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <div class="page">
+    <header class='header'>
+      <img class='logo' src="../<%=require('../images/newsexplorer.svg').default%>" alt='logo'>
+      <img src="../<%=require('../images/menu.svg').default%>" class="header__button">
+      <menu class='menu'>
+        <a class='menu__item menu__item_active' href='../'>Главная</a>
+        <a class='menu__item' href='./index.html'>Сохраненные статьи</a>
+        <button class="button button_auth">Авторизоваться</button>
+      </menu>
+      <div class='background'></div>
+    </header>
+  </div>
+  <script src="<%=htmlWebpackPlugin.files.chunks.favorites.entry %>"></script>
 </body>
 </html>

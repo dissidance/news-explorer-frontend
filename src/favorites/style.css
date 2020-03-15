@@ -1,7 +1,19 @@
-h1 {
-  color: red;
+.page {
+  margin: 0 auto;
+  max-width: 1440px;
+  box-sizing: border-box;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  user-select: none;
+  color: #1A1B22;
+  background-image: url(../images/image_04.png);
 }
 
-h2 {
-  color: green
+body {
+  background-color: #1A1B22;
+  margin: 0;
+}
+
+.hidden {
+  display: none;
 }
