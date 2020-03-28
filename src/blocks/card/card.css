@@ -7,6 +7,7 @@
 @import url(./__item-wrapper/card__item-wrapper.css);
 @import url(./__item/card__item.css);
 @import url(./__item/_marked/cards__item_marked.css);
+@import url(./__item/_keyword/card__item_keyword.css);
 @import url(./__control/card__control.css);
 @import url(./__item/_hidden/card__item_hidden.css);
 

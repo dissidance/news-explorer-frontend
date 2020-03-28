@@ -1,5 +1,13 @@
-.button_auth {
+.header__button-auth {
+  cursor: pointer;
+  outline: none;
+  margin: auto;
   background: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 100px;
+  padding: 0;
   width: 176px;
   height: 48px;
   box-shadow: none;
@@ -7,12 +15,12 @@
   z-index: 1;
 }
 
-.button_auth:hover {
+.header__button-auth:hover {
   background: none;
 }
 
 @media screen and (max-width: 1023px) {
-  .button_auth {
+  .header__button-auth {
     height: 40px;
     margin-top: 16px;
     height: 56px;
@@ -20,13 +28,13 @@
 }
 
 @media screen and (max-width: 710px) {
-  .button_auth {
+  .header__button-auth {
     width: 80%;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .button_auth {
+  .header__button-auth {
     width: 100%;
     margin: 0;
   }

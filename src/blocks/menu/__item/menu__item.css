@@ -15,8 +15,8 @@
 }
 
 .menu__item:hover {
-  border-bottom: 3px solid #fff;
   transition: border-bottom .1s linear .1s;
+  color: #fff;
 }
 
 @media screen and (max-width: 1023px) {

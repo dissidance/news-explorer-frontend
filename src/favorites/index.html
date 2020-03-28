@@ -13,15 +13,155 @@
 <body>
   <div class="page">
     <header class='header'>
-      <img class='logo' src="../<%=require('../images/newsexplorer.svg').default%>" alt='logo'>
-      <img src="../<%=require('../images/menu.svg').default%>" class="header__button">
-      <menu class='menu'>
-        <a class='menu__item menu__item_active' href='../'>Главная</a>
-        <a class='menu__item' href='./index.html'>Сохраненные статьи</a>
-        <button class="button button_auth">Авторизоваться</button>
+      <img class='logo' src="../<%=require('../images/newsexplorer-black.svg').default%>" alt='logo'>
+      <img src="../<%=require('../images/close-mid-black.svg').default%>" class="header__button">
+      <menu class='menu menu_theme_white'>
+        <a class='menu__item menu__item_theme_white' href='../'>Главная</a>
+        <a class='menu__item menu__item_theme_white menu__item_active_white' href='./favorites'>Сохраненные статьи</a>
+        <button class="header__button-auth header__button-auth_theme_white">
+          Грета
+          <span>
+            <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="">
+          </span>
+        </button>
       </menu>
       <div class='background'></div>
     </header>
+    <section class='stats'>
+      <p class='stats__description'>Сохраненные статьи</p>
+      <h1 class="stats__heading">Грета, у вас 5 сохраненных статей</h1>
+      <p class="stats__keywords">По ключевым словам:
+        <span class='stats__keywords_bold'>Природа, Тайга</span>
+        <span class='stats__keywords'>и</span>
+        <span class='stats__keywords_bold'>2 другим</span>
+      </p>
+    </section>
+    <section class="content">
+      <div class="cards">
+        <div class="cards__container">
+          <div class="card">
+            <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+              <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
+              <div class="card__control">
+                <div class="card__item-wrapper card__item card__item_hidden" id="hint">Убрать из сохраненных</div>
+                <div class="card__item-wrapper">
+                  <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+                  </svg>
+                </div>
+              </div>
+              <img src="../<%=require('../images/image_08.png').default%>" alt="" class="card__image">
+              <p class="card__date">2 августа, 2019</p>
+              <h3 class="card__title">Национальное достояние – парки</h3>
+              <p class="card__subtitle">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
+                начала складываться система национальных парков – охраняемых территорий,
+                где и сегодня каждый может приобщиться к природе.
+              </p>
+              <a class="card__source" href='https://lenta.ru/' target='_blank'>лента.ру</a>
+            </a>
+          </div>
+          <div class="card">
+            <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+              <div class="card__item-wrapper card__item card__item_keyword">Тайга</div>
+              <div class="card__control">
+                <div class="card__item-wrapper card__item card__item_hidden" id="hint">Убрать из сохраненных</div>
+                <div class="card__item-wrapper">
+                  <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+                  </svg>
+                </div>
+              </div>
+              <img src="../<%=require('../images/image_04.png').default%>" alt="" class="card__image">
+              <p class="card__date">2 августа, 2019</p>
+              <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
+              <p class="card__subtitle">Фотограф отвлеклась от освещения суровой политической реальности Мексики,
+                чтобы запечатлеть ускользающую красоту одного
+                из местных чудес природы.
+              </p>
+              <a class="card__source" href='https://meduza.io/' target='_blank'>медуза</a>
+            </a>
+          </div>
+          <div class="card">
+            <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+              <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
+              <div class="card__control">
+                <div class="card__item-wrapper card__item card__item_hidden" id="hint">Убрать из сохраненных</div>
+                <div class="card__item-wrapper">
+                  <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+                  </svg>
+                </div>
+              </div>
+              <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
+                <p class="card__date">2 августа, 2019</p>
+                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                  чтобы рассказать о необходимости их сохранения.
+                  В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                </p>
+              <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+            </a>
+          </div>
+          <div class="card">
+            <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+              <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
+              <div class="card__control">
+                <div class="card__item-wrapper card__item card__item_hidden" id="hint">Убрать из сохраненных</div>
+                <div class="card__item-wrapper">
+                  <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+                  </svg>
+                </div>
+              </div>
+              <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
+                <p class="card__date">2 августа, 2019</p>
+                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                  чтобы рассказать о необходимости их сохранения.
+                  В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                </p>
+              <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+            </a>
+          </div>
+          <div class="card">
+            <a class="card__wrapper" href='https://lenta.ru/news/2005/12/18/moore/' target='_blank'>
+              <div class="card__item-wrapper card__item card__item_keyword">Флора</div>
+              <div class="card__control">
+                <div class="card__item-wrapper card__item card__item_hidden" id="hint">Убрать из сохраненных</div>
+                <div class="card__item-wrapper">
+                  <svg class='card__item'  id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+                  </svg>
+                </div>
+              </div>
+              <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
+                <p class="card__date">2 августа, 2019</p>
+                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+                <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
+                  чтобы рассказать о необходимости их сохранения.
+                  В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+                </p>
+              <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__description">&copy; 2020 Supersite</p>
+      <div class="footer__menu">
+        <a class="footer__menu-item" href="./">Главная</p>
+        <a class="footer__menu-item" href="https://praktikum.yandex.ru/" target='_blank'>Яндекс.Практикум</a>
+      </div>
+      <div class="footer__icons-container">
+        <a class='footer__link' href="https://github.com/dissidance" target='_blank'>
+          <img class="footer__icon" src="../<%=require('../images/github-icon.svg').default%>" alt="github logo">
+        </a>
+        <a class='footer__link' href="https://www.facebook.com/profile.php?id=100045003390633">
+          <img class="footer__icon" src="../<%=require('../images/facebook-icon.svg').default%>" alt="fb logo">
+        </a>
+      </div>
+    </footer>
   </div>
   <script src="<%=htmlWebpackPlugin.files.chunks.favorites.entry %>"></script>
 </body>

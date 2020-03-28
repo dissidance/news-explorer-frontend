@@ -1,0 +1,23 @@
+.card__item_keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  max-width: 120px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .card__item_keyword {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+}
+
+@media (min-width: 696px) and (max-width: 900px) {
+  .card__item_keyword {
+    max-width: 90px;
+  }
+}

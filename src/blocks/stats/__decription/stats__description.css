@@ -1,0 +1,11 @@
+.stats__description {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  .stats__description {
+    font-size: 14px;
+  }
+}

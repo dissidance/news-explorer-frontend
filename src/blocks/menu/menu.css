@@ -1,4 +1,7 @@
 @import url(./__item/menu__item.css);
+@import url(./__item/_active/menu__item_active.css);
+@import url(./__item/_active/_white/menu__item_active_white.css);
+@import url(./__item/_theme_white/menu__item_theme_white.css);
 
 .menu {
   margin: auto;
@@ -14,13 +17,12 @@
   }
 }
 
-
 @media screen and (max-width: 710px) {
   .menu {
     position: absolute;
     top: 56px;
     left: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     width: calc(100% - 32px);
     right: 0;
@@ -37,6 +39,5 @@
     left: 0;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #1A1B22;
   }
 }

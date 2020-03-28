@@ -1,4 +1,7 @@
 @import url(./__button/header__button.css);
+@import url(./__button-auth/header__button-auth.css);
+@import url(./__button-auth/_theme/_white/__button-auth_theme_white.css);
+@import url(./__logout-icon/header__logout-icon.css);
 
 .header {
   display: flex;

@@ -9,3 +9,17 @@
 .card__control:hover > #hint {
   display: flex;
 }
+
+@media screen and (max-width: 768px) {
+  .card__control {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .card__control:hover > #hint {
+    display: none;
+  }
+}

@@ -1,5 +1,6 @@
 .cards__container {
   display: grid;
+  margin-top: 64px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-template-rows: auto;
   row-gap: 16px;
@@ -24,6 +25,7 @@
     grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
     row-gap: 8px;
     column-gap: 8px;
+    margin-top: 32px;
   }
 }
 

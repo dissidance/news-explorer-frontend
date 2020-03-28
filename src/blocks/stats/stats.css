@@ -1,0 +1,30 @@
+@import url(./__decription/stats__description.css);
+@import url(./__heading/stats__heading.css);
+@import url(./__keywords/stats__keywords.css);
+@import url(./__keywords/_bold/stats__keywords_bold.css);
+
+.stats {
+  max-width: 530px;
+  margin: 40px 0 32px 104px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-style: normal;
+}
+
+@media screen and (max-width: 1024px) {
+  .stats {
+    margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stats {
+    max-width: 336px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .stats {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
