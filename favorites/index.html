@@ -6,7 +6,7 @@
   <meta name="description" content="Веб-приложение для поиска новостей">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>News Explorer</title>
-  <link rel="stylesheet" href="../favorites/favorites.bd54773d78760c49fe53.css">
+  <link rel="stylesheet" href="../favorites/favorites.f728891530cc56e45dd4.css">
   <link rel="shortcut icon" type="image/png" href=".././images/favicon.svg">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
@@ -15,8 +15,8 @@
     <header class='header'>
       <div class='background'></div>
       <img class='logo' src=".././images/newsexplorer-black.svg" alt='logo'>
-      <img src=".././images/close-mid-black.svg" class="header__button">
-      <menu class='menu menu_theme_white'>
+      <img src=".././images/close-mid-black.svg" alt='close' class="header__button">
+      <div class='menu menu_theme_white'>
         <a class='menu__item menu__item_theme_white' href='../'>Главная</a>
         <a class='menu__item menu__item_theme_white menu__item_active_white' href='./favorites'>Сохраненные статьи</a>
         <button class="header__button-auth header__button-auth_theme_white">
@@ -25,7 +25,7 @@
             <img class='header__logout-icon' src=".././images/logout.svg" alt="">
           </span>
         </button>
-      </menu>
+      </div>
     </header>
     <section class='stats'>
       <p class='stats__description'>Сохраненные статьи</p>
@@ -44,7 +44,7 @@
             <div class="card__control">
               <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
               <div class="card__item-wrapper">
-                <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
                 </svg>
               </div>
@@ -63,7 +63,7 @@
             <div class="card__control">
               <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
               <div class="card__item-wrapper">
-                <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
                 </svg>
               </div>
@@ -82,7 +82,7 @@
             <div class="card__control">
               <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
               <div class="card__item-wrapper">
-                <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
                 </svg>
               </div>
@@ -101,7 +101,7 @@
             <div class="card__control">
               <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
               <div class="card__item-wrapper">
-                <svg class='card__item' id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class='card__item trash'width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
                 </svg>
               </div>
@@ -120,7 +120,7 @@
             <div class="card__control">
               <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
               <div class="card__item-wrapper">
-                <svg class='card__item'  id="trash" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
                 </svg>
               </div>
