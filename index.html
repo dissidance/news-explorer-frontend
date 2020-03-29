@@ -6,7 +6,7 @@
   <meta name="description" content="Веб-приложение для поиска новостей">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>News Explorer</title>
-  <link rel="stylesheet" href="main/main.d102e01dbe833838f4a1.css">
+  <link rel="stylesheet" href="main/main.beadf82bbb513bea07bb.css">
   <link rel="shortcut icon" type="image/png" href="./images/favicon.svg">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
@@ -16,11 +16,11 @@
       <header class='header'>
         <img class='logo' src="./images/newsexplorer.svg" alt='logo'>
         <img src="./images/menu.svg" class="header__button">
-        <menu class='menu'>
+        <div class='menu'>
           <a class='menu__item menu__item_active' href='./'>Главная</a>
           <a class='menu__item' href='./favorites'>Сохраненные статьи</a>
           <button class="header__button-auth">Авторизоваться</button>
-        </menu>
+        </div>
       </header>
       <section class='search'>
         <div class="search__container">
@@ -176,23 +176,63 @@
           </a>
         </div>
       </footer>
-      <div class="popup popup_is-opened" id='edit-profile'>
+
+      <div class="popup" id='enter'>
         <div class="popup__content">
           <img src="./images/close-mid.svg" alt="" class="popup__close" id='edit-close'>
           <h3 class="popup__title">Вход</h3>
-          <form class="popup__form" novalidate name="edit">
-            <div class="input-container">
-              <input id='editName' maxlength='30'type="text" name="name" class="popup__input popup__input_type_name" placeholder="Имя">
-              <span id="error-editName" class="error-message error-message__hidden"></span>
+          <form class="popup__form" novalidate name="enter">
+            <div class="input-container input-container__invalid">
+              <label class='popup__label' for="email">Email</label>
+              <input id='email' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+              <span id="error-email" class="error-message"></span>
             </div>
             <div class="input-container">
-              <input id='editAbout' minlength = '2' maxlength='30' required type="text" name="about" class="popup__input popup__input_type_description" placeholder="О себе">
-              <span id="error-editAbout" class="error-message"></span>
+              <label class='popup__label' for="password">Пароль</label>
+              <input id='password' autocomplete="off" minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+              <span id="error-password" class="error-message"></span>
             </div>
-              <button id='editSubmit' type class="button popup__button popup__button_save popup__button_is-active">Сохранить</button>
+              <button id='enterSubmit' type class="button popup__button popup__button_disabled" disabled>Войти</button>
           </form>
+          <p class='popup__navigation'>или<span class=' popup__navigation popup__navigation_ref'>Зарегистрироваться</span></p>
         </div>
       </div>
+
+      <div class="popup" id='registration'>
+        <div class="popup__content">
+          <img src="./images/close-mid.svg" alt="" class="popup__close" id='edit-close'>
+          <h3 class="popup__title">Регистрация</h3>
+          <form class="popup__form" novalidate name="registration">
+            <div class="input-container input-container__invalid">
+              <label class='popup__label' for="email">Email</label>
+              <input id='email' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+              <span id="error-email" class="error-message"></span>
+            </div>
+            <div class="input-container">
+              <label class='popup__label' for="password">Пароль</label>
+              <input id='password' autocomplete="off" minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+              <span id="error-password" class="error-message"></span>
+            </div>
+            <div class="input-container">
+              <label class='popup__label' for="password">Имя</label>
+              <input id='name' autocomplete="off" minlength = '8' required type="password" name="name" class="popup__input popup__input_type_name" placeholder="Введите свое имя">
+              <span id="error-password" class="error-message"></span>
+            </div>
+              <p id="error-form" class="error-message">Такой пользователь уже существует</p>
+              <button id='enterSubmit' type class="button popup__button">Зарегистрироваться</button>
+          </form>
+          <p class='popup__navigation'>или<span class=' popup__navigation popup__navigation_ref'>Войти</span></p>
+        </div>
+      </div>
+
+      <div class="popup" id='registered'>
+        <div class="popup__content">
+          <img src="./images/close-mid.svg" alt="" class="popup__close" id='edit-close'>
+          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <p class='popup__navigation popup__navigation_ref'>Выполнить вход</p>
+        </div>
+      </div>
+
     </div>
     <script src="main/main.6e8ec774c971299c7bdc.js"></script>
 </body>
