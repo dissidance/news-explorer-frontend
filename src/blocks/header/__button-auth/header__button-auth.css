@@ -30,6 +30,7 @@
 @media screen and (max-width: 710px) {
   .header__button-auth {
     width: 80%;
+    margin-bottom: 24px;
   }
 }
 
@@ -37,5 +38,6 @@
   .header__button-auth {
     width: 100%;
     margin: 0;
+    margin-bottom: 24px;
   }
 }

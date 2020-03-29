@@ -9,6 +9,7 @@
   background-color: #fff;
   padding-bottom: 80px;
   margin-top: -1px;
+  height: auto;
 }
 
 @media screen and (max-width: 650px) {

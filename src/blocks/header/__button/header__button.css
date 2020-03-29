@@ -1,4 +1,7 @@
 .header__button {
+  position: absolute;
+  top: 16px;
+  right: 0;
   width: 24px;
   height: 24px;
   align-self: center;

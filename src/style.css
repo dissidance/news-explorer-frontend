@@ -4,6 +4,7 @@
 @import url(./blocks/search/search.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/menu/menu.css);
+@import url(./blocks/menu/_is-opened/menu_is-opened.css);
 @import url(./blocks/logo/logo.css);
 @import url(./blocks/text/text.css);
 @import url(./blocks/text/_about/text_about.css);
@@ -15,14 +16,18 @@
 @import url(./blocks/not-found/not-found.css);
 @import url(./blocks/cards/cards.css);
 @import url(./blocks/card/card.css);
-@import url(./blocks/mobile-menu/mobile-menu.css);
 @import url(./blocks/background/background.css);
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/input-container/input-container.css);
+@import url(./blocks/error/error-message.css);
+@import url(./blocks/error/_form-invalid/error-message_form-invalid.css);
 
 
 
 .page {
   margin: 0 auto;
   max-width: 1440px;
+  position: relative;
   box-sizing: border-box;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: normal;

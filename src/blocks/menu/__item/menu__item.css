@@ -32,9 +32,16 @@
     margin-right: 16px;
     line-height: 18px;
     margin-right: 0;
+    width: 100%;
+    text-align: start;
+    padding-left: 16px;
+  }
+  .menu__item:first-of-type {
+    border-top: 1px solid rgba(196, 196, 196, 0.1);
   }
 
   .menu__item:hover {
     border-bottom: 3px solid transparent;
   }
+
 }

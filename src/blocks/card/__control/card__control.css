@@ -6,7 +6,7 @@
   flex-direction: row;
 }
 
-.card__control:hover > #hint {
+.card__control:hover > .hint {
   display: flex;
 }
 
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .card__control:hover > #hint {
+  .card__control:hover > .hint {
     display: none;
   }
 }

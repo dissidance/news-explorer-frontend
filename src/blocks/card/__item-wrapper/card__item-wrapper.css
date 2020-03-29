@@ -11,10 +11,10 @@
   margin-left: 5px;
 }
 
-.card__item-wrapper:hover > #mark > path {
+.card__item-wrapper:hover > .mark > path {
   stroke: #1A1B22;
 }
 
-.card__item-wrapper:hover > #trash > path {
+.card__item-wrapper:hover > .trash > path {
   fill: #1A1B22;
 }
