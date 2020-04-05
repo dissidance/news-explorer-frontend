@@ -1,5 +1,5 @@
 .search__input {
-  width: 95%;
+  width: 99%;
   height: 64px;
   margin: 0;
   line-height: 22px;
@@ -32,6 +32,8 @@
   font-style: normal;
   font-weight: normal;
   caret-color: #2F71E5;
+  box-shadow: 0 0 15px #2F71E5;
+  transition: box-shadow linear 0.2s;
 }
 
 @media screen and (max-width: 600px) {
