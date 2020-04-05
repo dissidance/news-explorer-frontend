@@ -1,6 +1,8 @@
   Проект представляет собой сервис, в котором можно найти новости по запросу и сохранить их в личном кабинете.
+  
+  [news-explorer-frontend](https://dissidance.github.io/news-explorer-frontend)
 
-  [Бэк-энд дипломного проекта](https://github.com/dissidance/news-explorer-api)
+  [news-explorer-api](https://github.com/dissidance/news-explorer-api)
 
   ## В проекте присутствует следующий функционал:
 
