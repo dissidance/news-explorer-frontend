@@ -1,4 +1,7 @@
 .header__button-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   outline: none;
   margin: auto;

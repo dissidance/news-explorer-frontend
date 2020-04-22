@@ -1,31 +1,22 @@
 import './style.css';
+import Popup from './blocks/popup/Popup';
+import Header from './blocks/header/Header';
+import { authButton, authPopupTemplate } from './js/constants';
+import SignInForm from './js/components/SignInForm';
+import SignUpForm from './js/components/SignUpForm';
 
-const numbers = [2, 3, 5];
-const doubledNumbers = numbers.map((number) => number * 2);
 
-console.log(doubledNumbers);
-console.log('hello');
+const signInForm = new SignInForm();
+const signUpForm = new SignUpForm();
 
+const popup = new Popup(signInForm, signUpForm);
 
-const findSmallest = (arr) => {
-  let smallest = arr[0];
-  let smallestIndex = 0;
-  for (let i = 1; i <= arr.length; i ++) {
-    if (arr[i] < smallest) {
-      smallest = arr[i];
-      smallestIndex = i;
-    }
-  }
-  return smallestIndex;
-}
+authButton.addEventListener('click', () => {
+  popup.setContent(authPopupTemplate);
+  signInForm.init();
+  popup.open();
+});
 
-const selectionSort = (arr) => {
-  let newArr = [];
-  for (let i = 0; i <= arr.length; i++) {
-    let smallest = findSmallest(arr);
-    newArr.push(arr.pop.smallest);
-  };
-  return newArr;
-}
+const header = new Header();
 
-selectionSort([5, 3, 6, 2, 10]);
+header.render({ isLoggedIn: true, userName: 'Макс' });

@@ -18,8 +18,11 @@
         <img src="<%=require('./images/menu.svg').default%>" alt='menu' class="header__button">
         <div class='menu'>
           <a class='menu__item menu__item_active' href='./'>Главная</a>
-          <a class='menu__item' href='./favorites'>Сохраненные статьи</a>
-          <button class="header__button-auth">Авторизоваться</button>
+          <a class='menu__item menu__item_is-opened menu__item_favorites' href='./favorites'>Сохраненные статьи</a>
+          <button class="header__button-auth">
+            Авторизоваться
+            <img class='header__logout-icon' src="<%=require('./images/logout-white.svg').default%>" alt="icon">
+          </button>
         </div>
       </header>
       <section class='search'>
@@ -167,61 +170,59 @@
         </div>
       </footer>
 
-      <div class="popup" id='enterPopup'>
+      <div class="popup">
         <div class="popup__content">
-          <img src="<%=require('./images/close-mid.svg').default%>" alt="close" class="popup__close" id='enterClose'>
-          <h3 class="popup__title">Вход</h3>
-          <form class="popup__form" novalidate name="enter">
-            <div class="input-container input-container__invalid">
-              <label class='popup__label' for="enterEmail">Email</label>
-              <input id='enterEmail' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
-              <span id="errorEnterEmail" class="error-message"></span>
-            </div>
-            <div class="input-container">
-              <label class='popup__label' for="enterPassword">Пароль</label>
-              <input id='enterPassword' autocomplete="off" minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
-              <span id="errorEnterPassword" class="error-message"></span>
-            </div>
-              <button id='enterSubmit' class="button popup__button popup__button_disabled" disabled>Войти</button>
-          </form>
-          <p class='popup__navigation'>или<span class=' popup__navigation popup__navigation_ref'>Зарегистрироваться</span></p>
+          <img src="<%=require('./images/close-mid.svg').default%>" alt="close" class="popup__close">
         </div>
       </div>
 
-      <div class="popup" id='registrationPopup'>
-        <div class="popup__content">
-          <img src="<%=require('./images/close-mid.svg').default%>" alt="close" class="popup__close" id='registrationClose'>
-          <h3 class="popup__title">Регистрация</h3>
-          <form class="popup__form" novalidate name="registration">
-            <div class="input-container input-container__invalid">
-              <label class='popup__label' for="registrationEmail">Email</label>
-              <input id='registrationEmail' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
-              <span id="error-email" class="error-message"></span>
-            </div>
-            <div class="input-container">
-              <label class='popup__label' for="registrationPassword">Пароль</label>
-              <input id='registrationPassword' autocomplete="off" minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
-              <span id="errorRegistrationPass" class="error-message"></span>
-            </div>
-            <div class="input-container">
-              <label class='popup__label' for="registrationName">Имя</label>
-              <input id='registrationName' autocomplete="off" minlength = '8' required type="password" name="name" class="popup__input popup__input_type_name" placeholder="Введите свое имя">
-              <span id="errorRegistrationName" class="error-message"></span>
-            </div>
-              <p id="errorRegistrationForm" class="error-message">Такой пользователь уже существует</p>
-              <button id='registraitionSubmit' class="button popup__button">Зарегистрироваться</button>
-          </form>
-          <p class='popup__navigation'>или<span class=' popup__navigation popup__navigation_ref'>Войти</span></p>
-        </div>
-      </div>
+      <template class='auth-popup'>
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form" novalidate name="enter">
+          <div class="input-container">
+            <label class='popup__label' for="enterEmail">Email</label>
+            <input id='enterEmail' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+            <span id="error-enterEmail" class="error-message">2222</span>
+          </div>
+          <div class="input-container">
+            <label class='popup__label' for="enterPassword">Пароль</label>
+            <input id='enterPassword' autocomplete="off" minlength='8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+            <span id="error-enterPassword" class="error-message">22222222</span>
+          </div>
+            <p id="errorsignUpForm" class="error-message">Такой пользователь уже существует</p>
+            <button id='enterSubmit' class="button popup__button">Войти</button>
+        </form>
+        <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignUp'>Зарегистрироваться</span></p>
+      </template>
 
-      <div class="popup" id='registeredPopup'>
-        <div class="popup__content">
-          <img src="<%=require('./images/close-mid.svg').default%>" alt="close" class="popup__close" id='registeredClose'>
-          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-          <p class='popup__navigation popup__navigation_ref'>Выполнить вход</p>
-        </div>
-      </div>
+      <template class='sign-up-popup'>
+        <h3 class="popup__title">Регистрация</h3>
+        <form class="popup__form" novalidate name="signUp">
+          <div class="input-container input-container__invalid">
+            <label class='popup__label' for="signUpEmail">Email</label>
+            <input id='signUpEmail' autocomplete="off" type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+            <span id="error-signUpEmail" class="error-message"></span>
+          </div>
+          <div class="input-container">
+            <label class='popup__label' for="signUpPassword">Пароль</label>
+            <input id='signUpPassword' autocomplete="off" minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+            <span id="error-signUpPassword" class="error-message"></span>
+          </div>
+          <div class="input-container">
+            <label class='popup__label' for="signUpName">Имя</label>
+            <input id='signUpName' autocomplete="off" minlength = '8' required type="password" name="name" class="popup__input popup__input_type_name" placeholder="Введите свое имя">
+            <span id="error-signUpName" class="error-message"></span>
+          </div>
+            <p id="errorsignUpForm" class="error-message">Такой пользователь уже существует</p>
+            <button id='registraitionSubmit' class="button popup__button">Зарегистрироваться</button>
+        </form>
+        <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignIn'>Войти</span></p>
+      </template>
+
+      <template class='success-popup'>
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+        <p class='popup__navigation popup__navigation_ref'>Выполнить вход</p>
+      </template>
 
     </div>
     <script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>

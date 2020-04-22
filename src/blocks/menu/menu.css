@@ -2,6 +2,7 @@
 @import url(./__item/_active/menu__item_active.css);
 @import url(./__item/_active/_white/menu__item_active_white.css);
 @import url(./__item/_theme_white/menu__item_theme_white.css);
+@import url(./__item/_is-opened/menu__item_is-opened.css);
 
 .menu {
   margin: auto;

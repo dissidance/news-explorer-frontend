@@ -12,8 +12,14 @@ const presets = [
       },
       useBuiltIns: 'usage',
       corejs: '3.4.1',
+      "targets": {
+        "esmodules": true,
+         "ie": "11"
+ }
     },
   ],
 ];
 
-module.exports = { presets };
+const plugins = ["@babel/plugin-proposal-class-properties"];
+
+module.exports = { presets, plugins };
