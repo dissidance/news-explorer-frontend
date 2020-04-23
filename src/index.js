@@ -6,7 +6,11 @@ import SignInForm from './js/components/SignInForm';
 import SignUpForm from './js/components/SignUpForm';
 
 
-const signInForm = new SignInForm();
+const header = new Header();
+
+header.render({ isLoggedIn: false, userName: 'Макс' });
+
+const signInForm = new SignInForm(header.render);
 const signUpForm = new SignUpForm();
 
 const popup = new Popup(signInForm, signUpForm);
@@ -16,7 +20,3 @@ authButton.addEventListener('click', () => {
   signInForm.init();
   popup.open();
 });
-
-const header = new Header();
-
-header.render({ isLoggedIn: true, userName: 'Макс' });

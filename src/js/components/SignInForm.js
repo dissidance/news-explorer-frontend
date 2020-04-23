@@ -1,24 +1,52 @@
 import Form from './Form';
 
 class SignInForm extends Form {
-  // eslint-disable-next-line no-useless-constructor
-  constructor() {
+  constructor(headerRender) {
     super();
+
+    this.headerRender = headerRender;
   }
 
-  logger = (e) => {
+  _validateForm = () => {
+    if (this._validateInputElement(this.inputs[0], 'email') && this._validateInputElement(this.inputs[1], 'password')) {
+      this.submitButton.removeAttribute('disabled');
+      this.submitButton.classList.remove('popup__button_disabled');
+    } else {
+      this.submitButton.setAttribute('disabled', true);
+      this.submitButton.classList.add('popup__button_disabled');
+    }
+  };
+
+  signIn = (e) => {
     e.preventDefault();
-    console.log('submit signIn');
+
+    const event = new Event('closePopup');
+
+    this.headerRender({ isLoggedIn: true, userName: 'Макс' });
+
+    document.dispatchEvent(event);
   }
 
   init = () => {
-    const submitButton = document.querySelector('.popup__button');
     this.getInputs();
-    this._setHandlers([{ element: submitButton, event: 'click', callback: (e) => this.logger(e) },
+    this.submitButton = document.querySelector('.popup__button');
+    const form = document.querySelector('.popup__form');
+
+    this._setHandlers([{ element: this.submitButton, event: 'click', callback: (e) => this.signIn(e) },
       {
         element: this.inputs[0],
         event: 'input',
-        callback: () => this._validateInputElement(this.inputs[0], this._isValidEmail(this.inputs[0]), 'неверный формат email'),
+        callback: () => this._validateInputElement(this.inputs[0], 'email'),
+      },
+      {
+        element: this.inputs[1],
+        event: 'input',
+        callback: () => this._validateInputElement(this.inputs[1], 'password'),
+      },
+      {
+        element: form,
+        event: 'input',
+        callback: () => this._validateForm(),
       },
     ]);
   }

@@ -14,7 +14,7 @@ class BaseComponent {
     this._listeners.push({ element, event, callback });
   }
 
-  _removeListeners = () => {
+  removeListeners = () => {
     this._listeners.forEach(({ element, event, callback }) => {
       element.removeEventListener(event, callback);
     });

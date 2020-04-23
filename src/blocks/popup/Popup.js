@@ -15,19 +15,24 @@ class Popup extends BaseComponent {
       { element: closeButton, event: 'click', callback: () => this.close() },
       { element: document, event: 'keydown', callback: (e) => this._closeOnKey(e) },
       { element: document, event: 'mousedown', callback: (e) => this._closeOnOverlay(e) },
+      { element: document, event: 'closePopup', callback: () => this.close() },
     ];
   }
 
   setContent = (template) => {
     if (document.querySelector('.popup__title')) this._clearContent();
+
     popupContent.appendChild(template.cloneNode(true).content);
+
     this.handlers.push({ element: document.querySelector('.popup__navigation_ref'), event: 'click', callback: (e) => this.moveToNextPopup(e) });
     this._setHandlers(this.handlers);
   }
 
   _clearContent = () => {
     const form = document.querySelector('.popup__form');
+
     if (form) popupContent.removeChild(document.querySelector('.popup__form'));
+
     popupContent.removeChild(document.querySelector('.popup__title'));
     popupContent.removeChild(document.querySelector('.popup__navigation'));
   }
@@ -35,9 +40,11 @@ class Popup extends BaseComponent {
    moveToNextPopup = (e) => {
      if (e.target.id === 'navToSignUp') {
        this.setContent(signUpPopupTemplate);
+       this.signInForm.removeListeners();
        this.signUpForm.init();
      } else if (e.target.id === 'navToSignIn') {
        this.setContent(authPopupTemplate);
+       this.signUpForm.removeListeners();
        this.signInForm.init();
      }
    }
@@ -56,8 +63,9 @@ class Popup extends BaseComponent {
 
   close = () => {
     popupContainer.classList.remove('popup_is-opened');
+
     this._clearContent();
-    this._removeListeners();
+    this.removeListeners();
   }
 }
 

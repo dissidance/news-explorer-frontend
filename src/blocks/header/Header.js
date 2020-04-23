@@ -1,17 +1,18 @@
 import './header.css';
+import './__button-auth/_theme/_white/__button-auth_theme_white.css';
 import BaseComponent from '../../js/components/BaseComponent';
-import { authButton, menuButtonFavorites, logoutIcon } from '../../js/constants';
+import { menuButtonFavorites, logoutIcon, userName } from '../../js/constants';
 
 class Header extends BaseComponent {
   render = (props) => {
     if (props.isLoggedIn) {
-      authButton.textContent = props.userName;
+      userName.textContent = props.userName;
       menuButtonFavorites.classList.toggle('menu__item_is-opened');
-      authButton.appendChild(logoutIcon);
+      logoutIcon.classList.add('header__logout-icon_is-active');
     } else {
-      authButton.textContent = 'Авторизоваться';
+      userName.textContent = 'Авторизоваться';
       menuButtonFavorites.classList.toggle('menu__item_is-opened');
-      authButton.removeChild(logoutIcon);
+      logoutIcon.classList.remove('header__logout-icon_is-active');
     }
   }
 }

@@ -5,6 +5,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+  transition: .3s;
 }
 
 .popup__button_disabled:hover {

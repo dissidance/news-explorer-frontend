@@ -13,13 +13,27 @@ class Form extends BaseComponent {
     if (err) err.textContent = message;
   }
 
-  _validateInputElement = (elem, handler, errMessage) => {
+  _validateInputElement = (elem, typeField) => {
     const errorElement = document.querySelector(`#error-${elem.id}`);
     this._resetError(elem);
-    if (!handler) {
-      errorElement.textContent = errMessage;
+    if (!this._isEmptyField(elem)) {
+      errorElement.textContent = 'Это обязательное поле';
       this._activateError(errorElement);
       return false;
+    }
+    if (typeField === 'email') {
+      if (!this._isValidEmail(elem)) {
+        errorElement.textContent = 'Неверный формат email';
+        this._activateError(errorElement);
+        return false;
+      }
+    }
+    if (typeField === 'password') {
+      if (!this._isValidPassoword(elem)) {
+        errorElement.textContent = 'Должно быть не меньше 8 символов';
+        this._activateError(errorElement);
+        return false;
+      }
     }
     return true;
   };
@@ -42,6 +56,11 @@ class Form extends BaseComponent {
     elem.parentNode.classList.remove('input-container__invalid');
   };
 
+  _isEmptyField = (elem) => {
+    if (elem.value.length !== 0) return true;
+    return false;
+  }
+
   _isValidEmail = (elem) => {
     const { value } = elem;
     const regExp = /^([\w]+((-|.)?([\w+])?)){2,}@\w{2,}\.\w{2,}(\.\w{2,})?$/;
@@ -53,11 +72,8 @@ class Form extends BaseComponent {
     return false;
   }
 
-  _validateForm = () => {
-  }
-
-  _getInfo = () => {
-
+  _getInfo = (e) => {
+    e.preventDefault();
   }
 }
 
