@@ -5,6 +5,7 @@ class Form extends BaseComponent {
     super();
     this.form = document.querySelector('.popup__form');
     this.inputs = [];
+    this.closePopupEvent = new Event('closePopup');
     this.navigation = document.querySelector('.popup__navigation_ref');
   }
 
@@ -15,12 +16,15 @@ class Form extends BaseComponent {
 
   _validateInputElement = (elem, typeField) => {
     const errorElement = document.querySelector(`#error-${elem.id}`);
+
     this._resetError(elem);
+
     if (!this._isEmptyField(elem)) {
       errorElement.textContent = 'Это обязательное поле';
       this._activateError(errorElement);
       return false;
     }
+
     if (typeField === 'email') {
       if (!this._isValidEmail(elem)) {
         errorElement.textContent = 'Неверный формат email';
@@ -28,6 +32,7 @@ class Form extends BaseComponent {
         return false;
       }
     }
+
     if (typeField === 'password') {
       if (!this._isValidPassoword(elem)) {
         errorElement.textContent = 'Должно быть не меньше 8 символов';
@@ -35,6 +40,7 @@ class Form extends BaseComponent {
         return false;
       }
     }
+
     return true;
   };
 
@@ -44,6 +50,7 @@ class Form extends BaseComponent {
 
   getInputs = () => {
     this.inputs = document.querySelectorAll('.popup__input');
+
     return this.inputs;
   };
 
@@ -58,17 +65,20 @@ class Form extends BaseComponent {
 
   _isEmptyField = (elem) => {
     if (elem.value.length !== 0) return true;
+
     return false;
   }
 
   _isValidEmail = (elem) => {
     const { value } = elem;
     const regExp = /^([\w]+((-|.)?([\w+])?)){2,}@\w{2,}\.\w{2,}(\.\w{2,})?$/;
+
     return regExp.test(value);
   };
 
   _isValidPassoword = (elem) => {
     if (elem.value.length >= 8) return true;
+
     return false;
   }
 

@@ -20,11 +20,9 @@ class SignInForm extends Form {
   signIn = (e) => {
     e.preventDefault();
 
-    const event = new Event('closePopup');
-
     this.headerRender({ isLoggedIn: true, userName: 'Макс' });
 
-    document.dispatchEvent(event);
+    document.dispatchEvent(this.closePopupEvent);
   }
 
   init = () => {

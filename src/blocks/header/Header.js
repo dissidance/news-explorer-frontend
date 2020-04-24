@@ -1,5 +1,4 @@
 import './header.css';
-import './__button-auth/_theme/_white/__button-auth_theme_white.css';
 import BaseComponent from '../../js/components/BaseComponent';
 import { menuButtonFavorites, logoutIcon, userName } from '../../js/constants';
 

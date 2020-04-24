@@ -13,6 +13,11 @@ const successPopupTemplate = document.querySelector('.success-popup');
 const menuButtonFavorites = document.querySelector('.menu__item_favorites');
 const logoutIcon = document.querySelector('.header__logout-icon');
 const userName = document.querySelector('.header__button-text');
+const mobileMenuButton = document.querySelector('.header__button');
+const menu = document.querySelector('.menu');
+
+// Document
+const overlay = document.querySelector('.overlay');
 
 export {
   authButton,
@@ -25,4 +30,7 @@ export {
   menuButtonFavorites,
   logoutIcon,
   userName,
+  mobileMenuButton,
+  menu,
+  overlay,
 };

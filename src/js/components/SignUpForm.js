@@ -1,6 +1,12 @@
 import Form from './Form';
 
 class SignUpForm extends Form {
+  constructor() {
+    super();
+
+    this.openSuccessEvent = new Event('openSuccessPopup');
+  }
+
   _validateForm = () => {
     if (this._validateInputElement(this.inputs[0], 'email')
     && this._validateInputElement(this.inputs[1], 'password')
@@ -13,12 +19,17 @@ class SignUpForm extends Form {
     }
   };
 
+  signUp = (e) => {
+    e.preventDefault();
+    document.dispatchEvent(this.openSuccessEvent);
+  }
+
   init = () => {
     this.getInputs();
     this.submitButton = document.querySelector('.popup__button');
     const form = document.querySelector('.popup__form');
 
-    this._setHandlers([{ element: this.submitButton, event: 'click', callback: (e) => this._getInfo(e) },
+    this._setHandlers([{ element: this.submitButton, event: 'click', callback: (e) => this.signUp(e) },
       {
         element: this.inputs[0],
         event: 'input',
@@ -30,7 +41,7 @@ class SignUpForm extends Form {
         callback: () => this._validateInputElement(this.inputs[1], 'password'),
       },
       {
-        element: this.inputs[1],
+        element: this.inputs[2],
         event: 'input',
         callback: () => this._validateInputElement(this.inputs[2]),
       },

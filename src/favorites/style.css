@@ -17,8 +17,8 @@
 @import url(../blocks/not-found/not-found.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
-@import url(../blocks/background/background.css);
-@import url(../blocks/background/_is-opened/background_is-opened.css);
+@import url(../blocks/overlay/overlay.css);
+@import url(../blocks/overlay/_is-opened/overlay_is-opened.css);
 @import url(../blocks/stats/stats.css);
 
 .page {
