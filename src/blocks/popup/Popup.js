@@ -9,6 +9,7 @@ import {
   authPopupTemplate,
   mobileMenuButton,
   successPopupTemplate,
+  overlay,
 } from '../../js/constants';
 
 
@@ -51,6 +52,7 @@ class Popup extends BaseComponent {
     popupContent.removeChild(document.querySelector('.popup__navigation'));
   }
 
+
   // Перемещение к следующему попапу по нажатию на кнопку
   moveToNextPopup = (e) => {
     if (e.target.id === 'navToSignUp') {
@@ -92,14 +94,15 @@ class Popup extends BaseComponent {
 
   open = () => {
     popupContainer.classList.add('popup_is-opened');
-    mobileMenuButton.classList.remove('header__button_is-active');
+    mobileMenuButton.classList.add('header__button_is-hidden');
   }
 
 
   close = () => {
     popupContainer.classList.remove('popup_is-opened');
-    mobileMenuButton.classList.add('header__button_is-active');
-
+    mobileMenuButton.classList.remove('header__button_is-hidden');
+    mobileMenuButton.src = '../../images/menu.svg';
+    overlay.classList.remove('overlay_is-opened');
     this._clearContent();
     this.removeListeners();
   }

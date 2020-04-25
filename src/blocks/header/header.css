@@ -1,5 +1,6 @@
 @import url(./__button/header__button.css);
 @import url(./__button/_is-active/header__button_is-active.css);
+@import url(./__button/_is-hidden/header__button_is-hidden.css);
 @import url(./__button-auth/header__button-auth.css);
 @import url(./__logout-icon/header__logout-icon.css);
 @import url(./__logout-icon/_is-active/header__logout-icon_is-active.css);

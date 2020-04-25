@@ -25,6 +25,7 @@ const openMenu = () => {
 };
 
 const openPopup = () => {
+  menu.classList.remove('menu_is-opened');
   popup.setContent(authPopupTemplate);
   signInForm.init();
   popup.open();
