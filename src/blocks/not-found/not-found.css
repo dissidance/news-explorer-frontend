@@ -2,7 +2,7 @@
 @import url(./__image/not-found__image.css);
 
 .not-found {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-self: center;
   min-height: 374px;

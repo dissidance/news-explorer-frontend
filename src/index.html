@@ -15,7 +15,7 @@
     <div class='overlay'></div>
     <header class='header'>
       <img class='logo' src="<%=require('./images/newsexplorer.svg').default%>" alt='logo'>
-      <img src="<%=require('./images/menu.svg').default%>" alt='menu' class="header__button">
+      <div class="header__button"></div>
       <div class='menu'>
         <a class='menu__item menu__item_active' href='./'>Главная</a>
         <a class='menu__item menu__item_favorites' href='./favorites'>Сохраненные статьи</a>
@@ -30,7 +30,7 @@
         <h1 class="search__title">Что в мире творится?</h1>
         <p class="text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
         <form class="search__form">
-          <input class="search__input" type="text" placeholder="Введите тему новости">
+          <input class="search__input" autocomplete="on" type="text" placeholder="Введите тему новости">
           <button class="button button_input">Искать</button>
         </form>
       </div>
@@ -181,12 +181,12 @@
       <form class="popup__form" novalidate name="enter">
         <div class="input-container">
           <label class='popup__label' for="enterEmail">Email</label>
-          <input id='enterEmail' type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <input id='enterEmail' type="text" required name="email" class="popup__input popup__input_type_email" placeholder="Введите почту">
           <span id="error-enterEmail" class="error-message">2222</span>
         </div>
         <div class="input-container">
           <label class='popup__label' for="enterPassword">Пароль</label>
-          <input id='enterPassword' minlength='8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+          <input id='enterPassword' minlength='8' required type="password" name="password" class="popup__input popup__input_type_password" placeholder="Введите пароль">
           <span id="error-enterPassword" class="error-message">22222222</span>
         </div>
           <p id="errorsignUpForm" class="error-message">Такой пользователь уже существует</p>
@@ -200,12 +200,12 @@
       <form class="popup__form" novalidate name="signUp">
         <div class="input-container">
           <label class='popup__label' for="signUpEmail">Email</label>
-          <input id='signUpEmail' type="text" required name="name" class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <input id='signUpEmail' type="text" required name="email" class="popup__input popup__input_type_email" placeholder="Введите почту">
           <span id="error-signUpEmail" class="error-message">error</span>
         </div>
         <div class="input-container">
           <label class='popup__label' for="signUpPassword">Пароль</label>
-          <input id='signUpPassword' minlength = '8' required type="password" name="about" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+          <input id='signUpPassword' minlength = '8' required type="password" name="password" class="popup__input popup__input_type_password" placeholder="Введите пароль">
           <span id="error-signUpPassword" class="error-message">error</span>
         </div>
         <div class="input-container">
@@ -213,7 +213,7 @@
           <input id='signUpName' maxlength = '30' required type="text" name="name" class="popup__input popup__input_type_name" placeholder="Введите свое имя">
           <span id="error-signUpName" class="error-message">error</span>
         </div>
-          <p id="errorsignUpForm" class="error-message">Такой пользователь уже существует</p>
+          <p id="errorsignUpForm" class="error-message server-message-error">Такой пользователь уже существует</p>
           <button id='registraitionSubmit' class="button popup__button popup__button_disabled">Зарегистрироваться</button>
       </form>
       <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignIn'>Войти</span></p>

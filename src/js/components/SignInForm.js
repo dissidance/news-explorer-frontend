@@ -1,9 +1,9 @@
 import Form from './Form';
 
 class SignInForm extends Form {
-  constructor(headerRender) {
+  constructor(headerRender, api) {
     super();
-
+    this.api = api;
     this.headerRender = headerRender;
   }
 
@@ -19,16 +19,22 @@ class SignInForm extends Form {
 
   signIn = (e) => {
     e.preventDefault();
-
-    this.headerRender({ isLoggedIn: true, userName: 'Макс' });
-
-    document.dispatchEvent(this.closePopupEvent);
+    this.api.signin(this.getFormData())
+      .then(() => {
+        this.api.getUserData()
+          .then((res) => {
+            this.headerRender({ isLoggedIn: true, userName: res.name });
+            document.dispatchEvent(this.closePopupEvent);
+          })
+          .catch((err) => this.setServerError(err.message));
+      })
+      .catch((err) => this.setServerError(err.message));
   }
 
   init = () => {
     this.getInputs();
     this.submitButton = document.querySelector('.popup__button');
-    const form = document.querySelector('.popup__form');
+    this.form = document.querySelector('.popup__form');
 
     this._setHandlers([{ element: this.submitButton, event: 'click', callback: (e) => this.signIn(e) },
       {
@@ -42,7 +48,7 @@ class SignInForm extends Form {
         callback: () => this._validateInputElement(this.inputs[1], 'password'),
       },
       {
-        element: form,
+        element: this.form,
         event: 'input',
         callback: () => this._validateForm(),
       },

@@ -3,7 +3,7 @@
 @import url(./__button/cards__button.css);
 
 .cards {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   max-width: calc(100% - 208px);

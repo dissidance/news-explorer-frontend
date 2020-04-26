@@ -43,4 +43,7 @@
     padding: 21px;
     height: 56px;
   }
+  .search__input::placeholder {
+    margin-top: -5px;
+  }
 }

@@ -101,7 +101,7 @@ class Popup extends BaseComponent {
   close = () => {
     popupContainer.classList.remove('popup_is-opened');
     mobileMenuButton.classList.remove('header__button_is-hidden');
-    mobileMenuButton.src = '../../images/menu.svg';
+    mobileMenuButton.style.backgroundImage = 'url(../../images/menu.svg)';
     overlay.classList.remove('overlay_is-opened');
     this._clearContent();
     this.removeListeners();

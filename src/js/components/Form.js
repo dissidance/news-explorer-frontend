@@ -9,8 +9,17 @@ class Form extends BaseComponent {
     this.navigation = document.querySelector('.popup__navigation_ref');
   }
 
+  getFormData = () => {
+    const formData = new FormData(this.form);
+    const result = {};
+    formData.forEach((value, key) => {
+      result[key] = value;
+    });
+    return result;
+  }
+
   setServerError = (message) => {
-    const err = document.querySelector('.error-message');
+    const err = document.querySelector('.server-message-error');
     if (err) err.textContent = message;
   }
 

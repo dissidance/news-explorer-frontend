@@ -1,9 +1,9 @@
 import Form from './Form';
 
 class SignUpForm extends Form {
-  constructor() {
+  constructor(api) {
     super();
-
+    this.api = api;
     this.openSuccessEvent = new Event('openSuccessPopup');
   }
 
@@ -21,13 +21,15 @@ class SignUpForm extends Form {
 
   signUp = (e) => {
     e.preventDefault();
-    document.dispatchEvent(this.openSuccessEvent);
+    this.api.signup(this.getFormData())
+      .then(() => document.dispatchEvent(this.openSuccessEvent))
+      .catch((err) => this.setServerError(err.message));
   }
 
   init = () => {
     this.getInputs();
     this.submitButton = document.querySelector('.popup__button');
-    const form = document.querySelector('.popup__form');
+    this.form = document.querySelector('.popup__form');
 
     this._setHandlers([{ element: this.submitButton, event: 'click', callback: (e) => this.signUp(e) },
       {
@@ -46,7 +48,7 @@ class SignUpForm extends Form {
         callback: () => this._validateInputElement(this.inputs[2]),
       },
       {
-        element: form,
+        element: this.form,
         event: 'input',
         callback: () => this._validateForm(),
       },

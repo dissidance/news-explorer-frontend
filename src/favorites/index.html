@@ -20,9 +20,13 @@
         <a class='menu__item menu__item_theme_white' href='../'>Главная</a>
         <a class='menu__item menu__item_theme_white menu__item_active_white' href='./favorites'>Сохраненные статьи</a>
         <button class="header__button-auth header__button-auth_theme_white">
+          <p class="header__button-text">Авторизоваться</p>
+          <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="icon">
+        </button>
+        <!-- <button class="header__button-auth header__button-auth_theme_white">
           Грета
           <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="">
-        </button>
+        </button> -->
       </div>
     </header>
     <section class='stats'>
@@ -35,7 +39,7 @@
       </p>
     </section>
     <section class="content">
-      <div class="cards">
+      <div class="cards cards_is-opened">
         <div class="cards__container">
           <div class="card">
             <div class="card__item-wrapper card__item card__item_keyword">Природа</div>

@@ -6,11 +6,11 @@ class Header extends BaseComponent {
   render = (props) => {
     if (props.isLoggedIn) {
       userName.textContent = props.userName;
-      menuButtonFavorites.classList.toggle('menu__item_is-opened');
+      if (menuButtonFavorites) menuButtonFavorites.classList.remove('menu__item_is-opened');
       logoutIcon.classList.add('header__logout-icon_is-active');
     } else {
       userName.textContent = 'Авторизоваться';
-      menuButtonFavorites.classList.toggle('menu__item_is-opened');
+      if (menuButtonFavorites) menuButtonFavorites.classList.add('menu__item_is-opened');
       logoutIcon.classList.remove('header__logout-icon_is-active');
     }
   }
