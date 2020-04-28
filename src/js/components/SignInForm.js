@@ -24,6 +24,7 @@ class SignInForm extends Form {
         this.api.getUserData()
           .then((res) => {
             this.headerRender({ isLoggedIn: true, userName: res.name });
+            localStorage.setItem('userData', JSON.stringify(res));
             document.dispatchEvent(this.closePopupEvent);
           })
           .catch((err) => this.setServerError(err.message));

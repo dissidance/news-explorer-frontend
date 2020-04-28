@@ -9,6 +9,8 @@ export default class MainApi {
 
   signin = (data) => utils.postData(`${this.endpoint}/signin`, data)
 
+  logout = (id) => utils.postData(`${this.endpoint}/logout`, id)
+
   getUserData = () => utils.getData(`${this.endpoint}/users/me`)
 
   getArticles = () => utils.getData(`${this.endpoint}/articles`)

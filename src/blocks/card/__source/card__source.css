@@ -1,10 +1,5 @@
 .card__source {
-  /* position: absolute; */
-  margin-left: 18px;
-  margin-bottom: 18px;
-  margin-top: 18px;
-  bottom: 24px;
-  left: 24px;
+  margin: auto 24px 24px 24px;
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 700;

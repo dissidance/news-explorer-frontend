@@ -9,6 +9,7 @@
 @import url(./__item/_keyword/card__item_keyword.css);
 @import url(./__control/card__control.css);
 @import url(./__item/_hidden/card__item_hidden.css);
+/* @import url(./__info-wrapper/card__info-wrapper.css); */
 
 .card {
   position: relative;

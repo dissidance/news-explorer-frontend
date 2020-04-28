@@ -4,31 +4,46 @@ import Header from './blocks/header/Header';
 import SignInForm from './js/components/SignInForm';
 import SignUpForm from './js/components/SignUpForm';
 import NewsApi from './js/api/NewsApi';
-import NewsCardList from './blocks/cards/NewsCardList';
-import NewsCard from './blocks/card/NewsCard';
+import NewsCardMain from './js/components/NewsCardMain';
 import MainApi from './js/api/MainApi';
-import { togglePreloader } from './js/utils';
+import { togglePreloader, openErrorBlock } from './js/utils';
 import {
   authButton,
   authPopupTemplate,
   mobileMenuButton,
   menu,
   overlay,
-  searchButton,
+  searchForm,
   searchInput,
   cardsContainer,
   cardsBlock,
   notFoundBlock,
+  API_URL,
+  NOT_FOUND_MESSAGES,
+  SERVER_ERROR_MESSAGES,
 } from './js/constants';
 
-const init = async () => {
-  const mainApi = new MainApi('http://localhost:3000');
+const initMainPage = async () => {
+  const mainApi = new MainApi(API_URL);
   const header = new Header();
+  await mainApi.getUserData()
+    .then((res) => {
+      localStorage.setItem('userData', JSON.stringify(res));
+      header.render({ isLoggedIn: true, userName: res.name });
+    })
+    .catch(() => {
+      header.render({ isLoggedIn: false, userName: '' });
+      localStorage.setItem('userData', '');
+    });
   const signInForm = new SignInForm(header.render, mainApi);
   const signUpForm = new SignUpForm(mainApi);
   const popup = new Popup(signInForm, signUpForm);
-  const card = new NewsCard();
-  const cardList = new NewsCardList(card.createCard);
+  const todayDate = new Date();
+  const todayDateFormated = todayDate.toISOString().slice(0, 10);
+  const daysFromNumber = 7;
+  const dateFromFormated = new Date(todayDate.setDate(todayDate.getDate() - daysFromNumber))
+    .toISOString().slice(0, 10);
+
 
   const openMenu = () => {
     if (menu.classList.contains('menu_is-opened')) {
@@ -42,7 +57,21 @@ const init = async () => {
     }
   };
 
-  const openPopup = () => {
+  const openPopup = async () => {
+    if (localStorage.getItem('userData')) {
+      const { _id } = JSON.parse(localStorage.getItem('userData'));
+
+      await mainApi.logout({ _id })
+        .then(() => {
+          header.render({ isLoggedIn: false, userName: '' });
+          localStorage.setItem('userData', '');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      return;
+    }
+
     menu.classList.remove('menu_is-opened');
     popup.setContent(authPopupTemplate);
     signInForm.init();
@@ -51,39 +80,52 @@ const init = async () => {
 
   const submitSearch = async (e) => {
     e.preventDefault();
+    notFoundBlock.classList.remove('not-found_is-opened');
 
     togglePreloader();
 
+    cardsBlock.classList.remove('cards_is-opened');
     cardsContainer.textContent = '';
-    const newsApi = new NewsApi({ keyword: searchInput.value, dateFrom: '2020-04-17', dateTo: '2020-04-24' });
+    const newsApi = new NewsApi({
+      keyword: searchInput.value,
+      dateFrom: dateFromFormated,
+      dateTo: todayDateFormated,
+    });
 
     const cards = await newsApi.getNews()
-      .then((res) => res.articles)
-      .catch((err) => console.log(err.message));
-
+      .then((res) => {
+        res.articles.forEach((card) => {
+          const { cardElement } = new NewsCardMain(card, searchInput.value);
+          cardsContainer.appendChild(cardElement);
+        });
+        return res.articles;
+      })
+      .catch(() => {
+        openErrorBlock(
+          notFoundBlock,
+          SERVER_ERROR_MESSAGES.title,
+          SERVER_ERROR_MESSAGES.description,
+        );
+        togglePreloader();
+      });
     if (cards.length === 0) {
       togglePreloader();
-      return notFoundBlock.classList.add('not-found_is-opened');
+      return openErrorBlock(
+        notFoundBlock,
+        NOT_FOUND_MESSAGES.title,
+        NOT_FOUND_MESSAGES.description,
+      );
     }
 
-    cardList.renderResults(cards);
     cardsBlock.classList.add('cards_is-opened');
     searchInput.value = '';
 
     return togglePreloader();
   };
 
-  mainApi.getUserData()
-    .then((res) => {
-      header.render({ isLoggedIn: true, userName: res.name });
-    })
-    .catch(() => {
-      header.render({ isLoggedIn: false, userName: '' });
-    });
-
-  searchButton.addEventListener('click', submitSearch);
+  searchForm.addEventListener('submit', submitSearch);
   authButton.addEventListener('click', openPopup);
   mobileMenuButton.addEventListener('click', openMenu);
 };
 
-init();
+initMainPage();

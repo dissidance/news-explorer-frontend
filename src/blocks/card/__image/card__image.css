@@ -1,11 +1,11 @@
 .card__image {
   width: 100%;
-  /* max-height: 272px; */
-  height: 40%;
+  padding-top: 68%;
   margin: 0;
   border: none;
   background-image: url(../../../images/no_img_medium.png);
   background-position: center;
+  background-size: cover;
 }
 
 @media screen and (max-width: 1024px) {

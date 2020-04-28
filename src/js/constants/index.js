@@ -1,3 +1,5 @@
+import MainApi from '../api/MainApi';
+
 //  buttons
 const authButton = document.querySelector('.header__button-auth');
 const closeButton = document.querySelector('.popup__close');
@@ -23,7 +25,13 @@ const cardsBlock = document.querySelector('.cards');
 const preloader = document.querySelector('.preloader');
 const notFoundBlock = document.querySelector('.not-found');
 
+// Error block
+
+const errorTitle = document.querySelector('.not-found__heading');
+const errorDescription = document.querySelector('.text_color_grey');
+
 // Card
+
 const bookmark = document.querySelector('#bookmark');
 const months = ['Января', 'Февраля', 'Марта',
   'Апреля', 'Мая', 'Июня', 'Июля', 'Августа',
@@ -31,15 +39,30 @@ const months = ['Января', 'Февраля', 'Марта',
 ];
 
 // Search
-const searchButton = document.querySelector('.button_input');
+
+const searchForm = document.querySelector('.search__form');
 const searchInput = document.querySelector('.search__input');
 
 // Document
+
 const overlay = document.querySelector('.overlay');
 
-// Config
+// API
+
 const API_KEY = 'b67c755a9da24588817dbb367e6797b7';
 const API_URL = 'https://api.news-explorer.xyz';
+const mainApi = new MainApi(API_URL);
+
+
+// Error messages
+const NOT_FOUND_MESSAGES = {
+  title: 'Ничего не найдено',
+  description: 'К сожалению по вашему запросу ничего не найдено',
+};
+const SERVER_ERROR_MESSAGES = {
+  title: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.',
+  description: 'Подождите немного и попробуйте ещё раз',
+};
 
 export {
   authButton,
@@ -59,9 +82,15 @@ export {
   API_KEY,
   cardsContainer,
   months,
-  searchButton,
+  searchForm,
   searchInput,
   cardsBlock,
   preloader,
   notFoundBlock,
+  API_URL,
+  errorTitle,
+  errorDescription,
+  NOT_FOUND_MESSAGES,
+  SERVER_ERROR_MESSAGES,
+  mainApi,
 };

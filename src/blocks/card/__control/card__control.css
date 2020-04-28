@@ -6,7 +6,11 @@
   flex-direction: row;
 }
 
-.card__control:hover > .hint {
+/* .card__control:hover > .hint {
+  display: flex;
+} */
+
+.card__control:hover > .mark {
   display: flex;
 }
 
@@ -15,11 +19,5 @@
     position: absolute;
     top: 16px;
     right: 16px;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .card__control:hover > .hint {
-    display: none;
   }
 }

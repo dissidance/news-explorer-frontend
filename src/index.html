@@ -30,7 +30,7 @@
         <h1 class="search__title">Что в мире творится?</h1>
         <p class="text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
         <form class="search__form">
-          <input class="search__input" autocomplete="on" type="text" placeholder="Введите тему новости">
+          <input class="search__input" oninvalid="setCustomValidity('Нужно ввести ключевое слово')" oninput="setCustomValidity('')" required type="text" placeholder="Введите тему новости">
           <button class="button button_input">Искать</button>
         </form>
       </div>
@@ -39,96 +39,7 @@
       <div class="cards">
         <h2 class="cards__title">Результаты поиска</h2>
         <div class="cards__container">
-          <div class="card">
-              <div class="card__control">
-                <div class="card__item-wrapper card__item card__item_hidden hint">Войдите, чтобы сохранять статьи</div>
-                <div class="card__item-wrapper">
-                  <svg class='card__item mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
-                  </svg>
-                </div>
-              </div>
-              <img src="<%=require('./images/image_08.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">Национальное достояние – парки</h3>
-              <p class="card__subtitle">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-                начала складываться система национальных парков – охраняемых территорий,
-                где и сегодня каждый может приобщиться к природе.
-              </p>
-              <a class="card__source" href='https://lenta.ru/' target='_blank'>лента.ру</a>
-          </div>
-          <div class="card">
-            <div class="card__control">
-              <div class="card__item-wrapper card__item hint card__item_hidden">Войдите, чтобы сохранять статьи</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
-                </svg>
-              </div>
-            </div>
-            <img src="<%=require('./images/image_04.png').default%>" alt="" class="card__image">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__subtitle">Фотограф отвлеклась от освещения суровой политической реальности Мексики,
-              чтобы запечатлеть ускользающую красоту одного
-              из местных чудес природы.
-            </p>
-            <a class="card__source" href='https://meduza.io/' target='_blank'>медуза</a>
-          </div>
-          <div class="card">
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Войдите, чтобы сохранять статьи</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item card__item_marked mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
-                </svg>
-              </div>
-            </div>
-            <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-                чтобы рассказать о необходимости их сохранения.
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
-          <div class="card">
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Войдите, чтобы сохранять статьи</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
-                </svg>
-              </div>
-            </div>
-            <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-            <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-              чтобы рассказать о необходимости их сохранения.
-              В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-            </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
-          <div class="card">
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Войдите, чтобы сохранять статьи</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item card__item_marked mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
-                </svg>
-              </div>
-            </div>
-            <img src="<%=require('./images/image_07.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-                чтобы рассказать о необходимости их сохранения.
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
+
         </div>
         <button class="cards__button">Показать еще</button>
       </div>
@@ -182,14 +93,14 @@
         <div class="input-container">
           <label class='popup__label' for="enterEmail">Email</label>
           <input id='enterEmail' type="text" required name="email" class="popup__input popup__input_type_email" placeholder="Введите почту">
-          <span id="error-enterEmail" class="error-message">2222</span>
+          <span id="error-enterEmail" class="error-message">Ошибка</span>
         </div>
         <div class="input-container">
           <label class='popup__label' for="enterPassword">Пароль</label>
           <input id='enterPassword' minlength='8' required type="password" name="password" class="popup__input popup__input_type_password" placeholder="Введите пароль">
-          <span id="error-enterPassword" class="error-message">22222222</span>
+          <span id="error-enterPassword" class="error-message">Ошибка</span>
         </div>
-          <p id="errorsignUpForm" class="error-message">Такой пользователь уже существует</p>
+          <p id="errorsignUpForm" class="error-message server-message-error">Такой пользователь уже существует</p>
           <button id='enterSubmit' class="button popup__button popup__button_disabled">Войти</button>
       </form>
       <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignUp'>Зарегистрироваться</span></p>

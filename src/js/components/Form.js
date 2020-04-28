@@ -21,6 +21,7 @@ class Form extends BaseComponent {
   setServerError = (message) => {
     const err = document.querySelector('.server-message-error');
     if (err) err.textContent = message;
+    err.classList.add('error-message_is-visible');
   }
 
   _validateInputElement = (elem, typeField) => {
@@ -89,10 +90,6 @@ class Form extends BaseComponent {
     if (elem.value.length >= 8) return true;
 
     return false;
-  }
-
-  _getInfo = (e) => {
-    e.preventDefault();
   }
 }
 

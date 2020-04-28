@@ -45,11 +45,12 @@ class Popup extends BaseComponent {
 
   _clearContent = () => {
     const form = document.querySelector('.popup__form');
+    const title = document.querySelector('.popup__title');
+    const navigation = document.querySelector('.popup__navigation');
 
     if (form) popupContent.removeChild(document.querySelector('.popup__form'));
-
-    popupContent.removeChild(document.querySelector('.popup__title'));
-    popupContent.removeChild(document.querySelector('.popup__navigation'));
+    if (title) popupContent.removeChild(document.querySelector('.popup__title'));
+    if (navigation) popupContent.removeChild(document.querySelector('.popup__navigation'));
   }
 
 
