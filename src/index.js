@@ -46,6 +46,7 @@ const initMainPage = async () => {
   const dateFromFormated = new Date(todayDate.setDate(todayDate.getDate() - daysFromNumber))
     .toISOString().slice(0, 10);
   let skip = 1;
+  searchInput.value = '';
 
   const openMenu = () => {
     if (menu.classList.contains('menu_is-opened')) {
@@ -97,7 +98,7 @@ const initMainPage = async () => {
     skip = 1;
     newsApi.getNews(skip)
       .then((res) => {
-        if (res.length === 0) {
+        if (res.articles.length === 0) {
           openErrorBlock(
             notFoundBlock,
             NOT_FOUND_MESSAGES.title,
