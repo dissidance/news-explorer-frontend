@@ -8,6 +8,9 @@ import {
   keywordsBetween,
   keywordsOthers,
   cardsContainer,
+  mobileMenuButton,
+  menu,
+  overlay,
 } from '../js/constants';
 
 import Header from '../blocks/header/Header';
@@ -30,6 +33,18 @@ const renderTitle = (cardsNumber) => {
   statsHeading.textContent = `${user.name}, у вас ${cardsNumber} сохраненных статей`;
 };
 
+
+const openMenu = () => {
+  if (menu.classList.contains('menu_is-opened')) {
+    menu.classList.remove('menu_is-opened');
+    mobileMenuButton.style.backgroundImage = 'url(./images/menu-black.svg)';
+    overlay.classList.remove('overlay_is-opened');
+  } else {
+    menu.classList.add('menu_is-opened');
+    mobileMenuButton.style.backgroundImage = 'url(./images/close-mid-black.svg)';
+    overlay.classList.add('overlay_is-opened');
+  }
+};
 const renderKeywords = (cards) => {
   if (!cards.length) return;
   // statsKeywords.textContent = `По ключевым словам: ${cards.length}`;
@@ -80,6 +95,7 @@ const init = async () => {
     })
     .catch((err) => err.message);
 
+  mobileMenuButton.addEventListener('click', openMenu);
   authButton.addEventListener('click', logout);
 };
 init();

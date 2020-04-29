@@ -15,7 +15,7 @@
     <header class='header'>
       <div class='overlay'></div>
       <img class='logo' src="../<%=require('../images/newsexplorer-black.svg').default%>" alt='logo'>
-      <img src="../<%=require('../images/close-mid-black.svg').default%>" alt='close' class="header__button">
+      <div class="header__button header__button_theme_white"></div>
       <div class='menu menu_theme_white'>
         <a class='menu__item menu__item_theme_white' href='../'>Главная</a>
         <a class='menu__item menu__item_theme_white menu__item_active_white' href='./favorites'>Сохраненные статьи</a>
@@ -25,6 +25,7 @@
         </button>
       </div>
     </header>
+
     <section class='stats'>
       <p class='stats__description'>Сохраненные статьи</p>
       <h1 class="stats__heading"></h1>
