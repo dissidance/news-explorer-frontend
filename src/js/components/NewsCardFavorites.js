@@ -18,7 +18,7 @@ class NewsCardFavorires extends NewsCard {
       .then(() => {
         this.cardElement.parentNode.removeChild(this.cardElement);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => err.message);
   }
 
   moveToSource = (e) => {

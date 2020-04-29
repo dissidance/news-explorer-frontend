@@ -32,7 +32,7 @@ class NewsCardMain extends NewsCard {
     if (this.mark.classList.contains('card__item_marked')) {
       mainApi.removeArticle(this.data._id)
         .then(() => this.mark.classList.remove('card__item_marked'))
-        .catch((err) => console.log(err.message));
+        .catch((err) => err.message);
     } else {
       mainApi.createArticle({
         title,
@@ -40,14 +40,14 @@ class NewsCardMain extends NewsCard {
         date: publishedAt,
         source: source.name,
         link: url,
-        image: urlToImage,
+        image: urlToImage || '',
         keyword,
       })
         .then((res) => {
           this.data._id = res._id;
           this.mark.classList.add('card__item_marked');
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => err.message);
     }
   }
 
