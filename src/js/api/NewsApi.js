@@ -3,10 +3,10 @@ import { API_KEY } from '../constants';
 class NewsApi {
   constructor(options) {
     Object.assign(this, options);
-    this.url = `https://newsapi.org/v2/everything?q=${this.keyword}&from=${this.dateFrom}&to=${this.dateTo}&pageSize=100&sortBy=popularity&apiKey=${API_KEY}`;
+    this.url = `https://newsapi.org/v2/everything?q=${this.keyword}&from=${this.dateFrom}&to=${this.dateTo}&pageSize=3&sortBy=popularity&apiKey=${API_KEY}`;
   }
 
-  getNews = () => fetch(this.url, {
+  getNews = (skip) => fetch(`${this.url}&page=${skip}`, {
     method: 'GET',
   })
     .then((res) => {

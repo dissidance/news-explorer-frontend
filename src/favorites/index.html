@@ -23,119 +23,21 @@
           <p class="header__button-text">Авторизоваться</p>
           <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="icon">
         </button>
-        <!-- <button class="header__button-auth header__button-auth_theme_white">
-          Грета
-          <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="">
-        </button> -->
       </div>
     </header>
     <section class='stats'>
       <p class='stats__description'>Сохраненные статьи</p>
-      <h1 class="stats__heading">Грета, у вас 5 сохраненных статей</h1>
+      <h1 class="stats__heading"></h1>
       <p class="stats__keywords">По ключевым словам:
-        <span class='stats__keywords_bold'>Природа, Тайга</span>
-        <span class='stats__keywords'>и</span>
-        <span class='stats__keywords_bold'>2 другим</span>
+        <span class='stats__keywords_bold' id='keywordsMain'>Природа, Тайга</span>
+        <span class='stats__keywords' id='keywordsBetween'>и</span>
+        <span class='stats__keywords_bold' id='keywordsOthers'>2 другим</span>
       </p>
     </section>
     <section class="content">
       <div class="cards cards_is-opened">
         <div class="cards__container">
-          <div class="card">
-            <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
-                </svg>
-              </div>
-            </div>
-            <img src="../<%=require('../images/image_08.png').default%>" alt="" class="card__image">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Национальное достояние – парки</h3>
-            <p class="card__subtitle">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь
-              начала складываться система национальных парков – охраняемых территорий,
-              где и сегодня каждый может приобщиться к природе.
-            </p>
-            <a class="card__source" href='https://lenta.ru/' target='_blank'>лента.ру</a>
-          </div>
-          <div class="card">
-            <div class="card__item-wrapper card__item card__item_keyword">Тайга</div>
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
-                </svg>
-              </div>
-            </div>
-            <img src="../<%=require('../images/image_04.png').default%>" alt="" class="card__image">
-            <p class="card__date">2 августа, 2019</p>
-            <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-            <p class="card__subtitle">Фотограф отвлеклась от освещения суровой политической реальности Мексики,
-              чтобы запечатлеть ускользающую красоту одного
-              из местных чудес природы.
-            </p>
-            <a class="card__source" href='https://meduza.io/' target='_blank'>медуза</a>
-          </div>
-          <div class="card">
-            <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
-                </svg>
-              </div>
-            </div>
-            <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-                чтобы рассказать о необходимости их сохранения.
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
-          <div class="card">
-            <div class="card__item-wrapper card__item card__item_keyword">Природа</div>
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
-                </svg>
-              </div>
-            </div>
-            <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-                чтобы рассказать о необходимости их сохранения.
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
-          <div class="card">
-            <div class="card__item-wrapper card__item card__item_keyword">Флора</div>
-            <div class="card__control">
-              <div class="card__item-wrapper card__item card__item_hidden hint">Убрать из сохраненных</div>
-              <div class="card__item-wrapper">
-                <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
-                </svg>
-              </div>
-            </div>
-            <img src="../<%=require('../images/image_07.png').default%>" alt="" class="card__image">
-              <p class="card__date">2 августа, 2019</p>
-              <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-              <p class="card__subtitle">Знаменитый фотограф снимает первозданные леса России,
-                чтобы рассказать о необходимости их сохранения.
-                В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-            <a class="card__source" href='https://ria.ru/' target='_blank'>риа</a>
-          </div>
+
         </div>
       </div>
     </section>
@@ -155,6 +57,13 @@
       </div>
     </footer>
   </div>
+
+  <template id='trash'>
+    <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class='path' fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+    </svg>
+  </template>
+
   <script src="<%=htmlWebpackPlugin.files.chunks.favorites.entry %>"></script>
 </body>
 </html>

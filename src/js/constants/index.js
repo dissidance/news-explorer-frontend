@@ -33,6 +33,7 @@ const errorDescription = document.querySelector('.text_color_grey');
 // Card
 
 const bookmark = document.querySelector('#bookmark');
+const trash = document.querySelector('#trash');
 const months = ['Января', 'Февраля', 'Марта',
   'Апреля', 'Мая', 'Июня', 'Июля', 'Августа',
   'Сентября', 'Октября', 'Ноября', 'Декабря',
@@ -48,11 +49,10 @@ const searchInput = document.querySelector('.search__input');
 const overlay = document.querySelector('.overlay');
 
 // API
-
 const API_KEY = 'b67c755a9da24588817dbb367e6797b7';
 const API_URL = 'https://api.news-explorer.xyz';
+const MAIN_URL = window.location.origin;
 const mainApi = new MainApi(API_URL);
-
 
 // Error messages
 const NOT_FOUND_MESSAGES = {
@@ -63,6 +63,15 @@ const SERVER_ERROR_MESSAGES = {
   title: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен.',
   description: 'Подождите немного и попробуйте ещё раз',
 };
+
+// Favorites
+
+const statsHeading = document.querySelector('.stats__heading');
+const statsKeywords = document.querySelector('.stats__keywords');
+const keywordsMain = document.querySelector('#keywordsMain');
+const keywordsBetween = document.querySelector('#keywordsBetween');
+const keywordsOthers = document.querySelector('#keywordsOthers');
+const showMoreButton = document.querySelector('#show-more-button');
 
 export {
   authButton,
@@ -92,5 +101,13 @@ export {
   errorDescription,
   NOT_FOUND_MESSAGES,
   SERVER_ERROR_MESSAGES,
+  MAIN_URL,
   mainApi,
+  statsHeading,
+  statsKeywords,
+  keywordsMain,
+  keywordsBetween,
+  keywordsOthers,
+  trash,
+  showMoreButton,
 };

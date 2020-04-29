@@ -7,17 +7,24 @@ class NewsCardMain extends NewsCard {
     super();
     this.data = data;
     this.data.keyword = keyword;
-    this.isMarked = false;
     this.cardElement = this.createCard(this.data);
     this.mark = this.cardElement.querySelector('.mark');
     this.hint = this.cardElement.querySelector('.hint');
-    this.mark.addEventListener('click', () => this.toggleMark(this.data));
-    this.mark.addEventListener('mouseover', this.showHint);
-    this.mark.addEventListener('mouseout', this.hideHint);
+    this.control = this.cardElement.querySelector('.card__control');
+    this.control.addEventListener('click', (e) => this.toggleMark(e, this.data));
+    this.control.addEventListener('mouseover', this.showHint);
+    this.control.addEventListener('mouseout', this.hideHint);
+    this.cardElement.addEventListener('click', this.moveToSource);
+  }
+
+  moveToSource = (e) => {
+    if (e.target.classList.contains('card__control')) return;
+    window.open(this.data.url, '_blank');
   }
 
 
-  toggleMark = (data) => {
+  toggleMark = (e, data) => {
+    e.stopPropagation();
     const {
       title, description, publishedAt, source, url, urlToImage, keyword,
     } = data;
@@ -51,7 +58,6 @@ class NewsCardMain extends NewsCard {
   showHint = () => {
     if (!getUserData()) this.hint.classList.remove('card__item_hidden');
   }
-
 
   createCard = (data) => {
     const card = document.createElement('div');

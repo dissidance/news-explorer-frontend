@@ -1,15 +1,85 @@
 import './style.css';
+import {
+  MAIN_URL,
+  authButton,
+  mainApi,
+  statsHeading,
+  keywordsMain,
+  keywordsBetween,
+  keywordsOthers,
+  cardsContainer,
+} from '../js/constants';
 
 import Header from '../blocks/header/Header';
-import { authButton } from '../js/constants';
+import NewsCardFavorites from '../js/components/NewsCardFavorites';
 
-const init = () => {
+
+const logout = () => {
+  const { _id } = JSON.parse(localStorage.getItem('userData'));
+
+  mainApi.logout({ _id })
+    .then(() => {
+      localStorage.setItem('userData', '');
+      window.location.assign(MAIN_URL);
+    })
+    .catch((err) => err.message);
+};
+
+const renderTitle = (cardsNumber) => {
+  const user = JSON.parse(localStorage.getItem('userData'));
+  statsHeading.textContent = `${user.name}, у вас ${cardsNumber} сохраненных статей`;
+};
+
+const renderKeywords = (cards) => {
+  if (!cards.length) return;
+  // statsKeywords.textContent = `По ключевым словам: ${cards.length}`;
+  const keywordsSet = new Set(cards.map((x) => x.keyword));
+  const keywords = [...keywordsSet];
+  let str1;
+  let str2;
+  if (keywords.length > 3) {
+    str1 = `${keywords[0]}, ${keywords[1]}`;
+    keywords.splice(0, 2);
+    str2 = keywords.length > 0 ? `${keywords.length} другим` : '';
+    keywordsMain.textContent = str1;
+    keywordsBetween.textContent = 'и';
+    keywordsOthers.textContent = str2;
+  } else {
+    str1 = keywords.slice(0, -1).reduce((acc, curr) => {
+      // eslint-disable-next-line no-param-reassign
+      acc += `${curr},`;
+      return acc;
+    }, '');
+    str1 += keywords[keywords.length - 1];
+    keywordsBetween.textContent = '';
+    keywordsOthers.textContent = '';
+  }
+};
+
+const init = async () => {
   const header = new Header();
 
-  header.render({ isLoggedIn: true, userName: 'Макс' });
-  authButton.addEventListener('click', () => {
-    // logout
-    window.location.assign('http://localhost:8080');
-  });
+  await mainApi.getUserData()
+    .then((res) => {
+      localStorage.setItem('userData', JSON.stringify(res));
+      header.render({ isLoggedIn: true, userName: res.name });
+    })
+    .catch(() => {
+      header.render({ isLoggedIn: false, userName: '' });
+      localStorage.setItem('userData', '');
+    });
+
+  await mainApi.getArticles()
+    .then((res) => {
+      renderTitle(res.length);
+      renderKeywords(res);
+      res.reverse().forEach((card) => {
+        const { cardElement } = new NewsCardFavorites(card);
+        cardsContainer.appendChild(cardElement);
+      });
+    })
+    .catch((err) => err.message);
+
+  authButton.addEventListener('click', logout);
 };
 init();

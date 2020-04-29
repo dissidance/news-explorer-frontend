@@ -11,6 +11,7 @@ import {
   authButton,
   authPopupTemplate,
   mobileMenuButton,
+  showMoreButton,
   menu,
   overlay,
   searchForm,
@@ -38,12 +39,13 @@ const initMainPage = async () => {
   const signInForm = new SignInForm(header.render, mainApi);
   const signUpForm = new SignUpForm(mainApi);
   const popup = new Popup(signInForm, signUpForm);
+  const showArticles = 3;
   const todayDate = new Date();
   const todayDateFormated = todayDate.toISOString().slice(0, 10);
   const daysFromNumber = 7;
   const dateFromFormated = new Date(todayDate.setDate(todayDate.getDate() - daysFromNumber))
     .toISOString().slice(0, 10);
-
+  let skip = 1;
 
   const openMenu = () => {
     if (menu.classList.contains('menu_is-opened')) {
@@ -65,10 +67,10 @@ const initMainPage = async () => {
         .then(() => {
           header.render({ isLoggedIn: false, userName: '' });
           localStorage.setItem('userData', '');
+          cardsContainer.textContent = '';
+          cardsBlock.classList.remove('cards_is-opened');
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch((err) => err.message);
       return;
     }
 
@@ -80,20 +82,63 @@ const initMainPage = async () => {
 
   const submitSearch = async (e) => {
     e.preventDefault();
-    notFoundBlock.classList.remove('not-found_is-opened');
-
-    togglePreloader();
-
-    cardsBlock.classList.remove('cards_is-opened');
-    cardsContainer.textContent = '';
+    togglePreloader(true);
     const newsApi = new NewsApi({
       keyword: searchInput.value,
       dateFrom: dateFromFormated,
       dateTo: todayDateFormated,
     });
+    cardsBlock.classList.remove('cards_is-opened');
 
-    const cards = await newsApi.getNews()
+    notFoundBlock.classList.remove('not-found_is-opened');
+
+    showMoreButton.classList.remove('cards__button_is-visible');
+    cardsContainer.textContent = '';
+    skip = 1;
+    newsApi.getNews(skip)
       .then((res) => {
+        if (res.length === 0) {
+          openErrorBlock(
+            notFoundBlock,
+            NOT_FOUND_MESSAGES.title,
+            NOT_FOUND_MESSAGES.description,
+          );
+          togglePreloader(false);
+          return;
+        }
+        if (res.articles.length >= showArticles) showMoreButton.classList.add('cards__button_is-visible');
+        res.articles.forEach((card) => {
+          const { cardElement } = new NewsCardMain(card, searchInput.value);
+          cardsContainer.appendChild(cardElement);
+        });
+        cardsBlock.classList.add('cards_is-opened');
+      })
+      .catch(() => {
+        openErrorBlock(
+          notFoundBlock,
+          SERVER_ERROR_MESSAGES.title,
+          SERVER_ERROR_MESSAGES.description,
+        );
+        togglePreloader(false);
+      });
+
+    setTimeout(() => {
+      togglePreloader(false);
+    }, 1000);
+  };
+
+  const showMoreHandler = () => {
+    skip += 3;
+    const newsApi = new NewsApi({
+      keyword: searchInput.value,
+      dateFrom: dateFromFormated,
+      dateTo: todayDateFormated,
+    });
+    newsApi.getNews(skip)
+      .then((res) => {
+        if (res.articles < showArticles) {
+          showMoreButton.classList.remove('cards__button_is-visible');
+        }
         res.articles.forEach((card) => {
           const { cardElement } = new NewsCardMain(card, searchInput.value);
           cardsContainer.appendChild(cardElement);
@@ -108,24 +153,13 @@ const initMainPage = async () => {
         );
         togglePreloader();
       });
-    if (cards.length === 0) {
-      togglePreloader();
-      return openErrorBlock(
-        notFoundBlock,
-        NOT_FOUND_MESSAGES.title,
-        NOT_FOUND_MESSAGES.description,
-      );
-    }
-
-    cardsBlock.classList.add('cards_is-opened');
-    searchInput.value = '';
-
-    return togglePreloader();
   };
 
-  searchForm.addEventListener('submit', submitSearch);
+
+  searchForm.addEventListener('submit', (e) => submitSearch(e));
   authButton.addEventListener('click', openPopup);
   mobileMenuButton.addEventListener('click', openMenu);
+  showMoreButton.addEventListener('click', showMoreHandler);
 };
 
 initMainPage();

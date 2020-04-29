@@ -3,9 +3,8 @@ import {
   errorDescription,
 } from '../constants';
 
-const togglePreloader = () => {
-  preloader.classList.toggle('preloader_is-opened');
-};
+const togglePreloader = (value) => (value === true ? preloader.classList.add('preloader_is-opened') : preloader.classList.remove('preloader_is-opened'));
+
 
 const openErrorBlock = (node, titleMessage, descriptionMessage) => {
   node.classList.add('not-found_is-opened');
