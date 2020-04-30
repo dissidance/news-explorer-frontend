@@ -1,0 +1,19 @@
+@import url(./__photo/about__photo.css);
+@import url(./__heading/about__heading.css);
+
+.about {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: normal;
+  display: flex;
+  background-color: #fff;
+  padding-bottom: 80px;
+  margin-top: -1px;
+  height: auto;
+}
+
+@media screen and (max-width: 650px) {
+  .about {
+    flex-direction: column;
+  }
+}

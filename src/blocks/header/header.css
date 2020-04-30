@@ -1,0 +1,30 @@
+@import url(./__button/header__button.css);
+@import url(./__button/_theme_white/header__button_theme_white.css);
+@import url(./__button/_is-active/header__button_is-active.css);
+@import url(./__button/_is-hidden/header__button_is-hidden.css);
+@import url(./__button-auth/header__button-auth.css);
+@import url(./__logout-icon/header__logout-icon.css);
+@import url(./__logout-icon/_is-active/header__logout-icon_is-active.css);
+@import url(./__button-text/header__button-text.css);
+@import url(./__button-auth/_theme/_white/__button-auth_theme_white.css);
+
+.header {
+  display: flex;
+  margin: auto;
+  position: relative;
+  justify-content: space-between;
+  min-height: 80px;
+  color: #fff;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.1);
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 710px) {
+  .header {
+    width: 100vw;
+    min-height: 56px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Max Zhivaev">
+  <meta name="description" content="Веб-приложение для поиска новостей">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News Explorer</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.favorites.css%>">
+  <link rel="shortcut icon" type="image/png" href="../<%=require('../images/favicon.svg').default%>">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="page">
+    <header class='header'>
+      <div class='overlay'></div>
+      <img class='logo' src="../<%=require('../images/newsexplorer-black.svg').default%>" alt='logo'>
+      <div class="header__button header__button_theme_white"></div>
+      <div class='menu menu_theme_white'>
+        <a class='menu__item menu__item_theme_white' href='../'>Главная</a>
+        <a class='menu__item menu__item_theme_white menu__item_active_white' href='./favorites'>Сохраненные статьи</a>
+        <button class="header__button-auth header__button-auth_theme_white">
+          <p class="header__button-text">Авторизоваться</p>
+          <img class='header__logout-icon' src="../<%=require('../images/logout.svg').default%>" alt="icon">
+        </button>
+      </div>
+    </header>
+
+    <section class='stats'>
+      <p class='stats__description'>Сохраненные статьи</p>
+      <h1 class="stats__heading"></h1>
+      <p class="stats__keywords">По ключевым словам:
+        <span class='stats__keywords_bold' id='keywordsMain'>Природа, Тайга</span>
+        <span class='stats__keywords' id='keywordsBetween'>и</span>
+        <span class='stats__keywords_bold' id='keywordsOthers'>2 другим</span>
+      </p>
+    </section>
+    <section class="content">
+      <div class="cards cards_is-opened">
+        <div class="cards__container">
+
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__description">&copy; 2020 Supersite</p>
+      <div class="footer__menu">
+        <a class="footer__menu-item" href="./">Главная</a>
+        <a class="footer__menu-item" href="https://praktikum.yandex.ru/" target='_blank'>Яндекс.Практикум</a>
+      </div>
+      <div class="footer__icons-container">
+        <a class='footer__link' href="https://github.com/dissidance" target='_blank'>
+          <img class="footer__icon" src="../<%=require('../images/github-icon.svg').default%>" alt="github logo">
+        </a>
+        <a class='footer__link' href="https://www.facebook.com/profile.php?id=100045003390633">
+          <img class="footer__icon" src="../<%=require('../images/facebook-icon.svg').default%>" alt="fb logo">
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <template id='trash'>
+    <svg class='card__item trash' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class='path' fill-rule="evenodd" clip-rule="evenodd" d="M15 3H9V5H3V7H21V5H15V3ZM5 9V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V9H17V20H7V9H5ZM9 9L9 18H11L11 9H9ZM13 9V18H15V9H13Z" fill="#B6BCBF"/>
+    </svg>
+  </template>
+
+  <script src="<%=htmlWebpackPlugin.files.chunks.favorites.entry %>"></script>
+</body>
+</html>

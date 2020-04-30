@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Max Zhivaev">
+  <meta name="description" content="Веб-приложение для поиска новостей">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>News Explorer</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.svg').default%>">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class='page'>
+    <div class='overlay'></div>
+    <header class='header'>
+      <img class='logo' src="<%=require('./images/newsexplorer.svg').default%>" alt='logo'>
+      <div class="header__button"></div>
+      <div class='menu'>
+        <a class='menu__item menu__item_active' href='./'>Главная</a>
+        <a class='menu__item menu__item_favorites' href='./favorites'>Сохраненные статьи</a>
+        <button class="header__button-auth">
+          <p class="header__button-text">Авторизоваться</p>
+          <img class='header__logout-icon' src="<%=require('./images/logout-white.svg').default%>" alt="icon">
+        </button>
+      </div>
+    </header>
+    <section class='search'>
+      <div class="search__container">
+        <h1 class="search__title">Что в мире творится?</h1>
+        <p class="text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+        <form class="search__form">
+          <input class="search__input" oninvalid="setCustomValidity('Нужно ввести ключевое слово')" oninput="setCustomValidity('')" required type="text" placeholder="Введите тему новости">
+          <button class="button button_input">Искать</button>
+        </form>
+      </div>
+    </section>
+    <section class="content">
+      <div class="cards">
+        <h2 class="cards__title">Результаты поиска</h2>
+        <div class="cards__container">
+
+        </div>
+        <button id="show-more-button" class="cards__button cards__button_is-visible">Показать еще</button>
+      </div>
+      <div class="preloader">
+        <i class="preloader__circle-preloader"></i>
+        <p class="preloader__text">Идет поиск новостей...</p>
+      </div>
+      <div class="not-found">
+        <img src="<%=require('./images/not-found.png').default%>" alt="" class="not-found__image">
+        <h2 class="not-found__heading">Ничего не найдено</h2>
+        <p class="text text_color_grey">К сожалению по вашему запросу ничего не найдено.</p>
+      </div>
+    </section>
+    <section class='about'>
+      <img class='about__photo' src="<%=require('./images/author-photo.jpg').default%>" alt="MDN">
+      <div class="description">
+        <h2 class="about__heading">Об авторе</h2>
+        <p class="text text_about">
+          Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+        </p>
+        <p class="text text_about">
+          Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+        </p>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__description">&copy; 2020 Supersite</p>
+      <div class="footer__menu">
+        <a class="footer__menu-item" href="./">Главная</a>
+        <a class="footer__menu-item" href="https://praktikum.yandex.ru/" target='_blank'>Яндекс.Практикум</a>
+      </div>
+      <div class="footer__icons-container">
+        <a class='footer__link' href="https://github.com/dissidance" target='_blank'>
+          <img class="footer__icon" src="<%=require('./images/github-icon.svg').default%>" alt="github logo">
+        </a>
+        <a class='footer__link' href="https://www.facebook.com/profile.php?id=100045003390633">
+          <img class="footer__icon" src="<%=require('./images/facebook-icon.svg').default%>" alt="fb logo">
+        </a>
+      </div>
+    </footer>
+
+    <div class="popup">
+      <div class="popup__content">
+        <img src="<%=require('./images/close-mid.svg').default%>" alt="close" class="popup__close">
+      </div>
+    </div>
+
+    <template id='auth-popup'>
+      <h3 class="popup__title">Вход</h3>
+      <form class="popup__form" novalidate name="enter">
+        <div class="input-container">
+          <label class='popup__label' for="enterEmail">Email</label>
+          <input id='enterEmail' type="text" required name="email" class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <span id="error-enterEmail" class="error-message">Ошибка</span>
+        </div>
+        <div class="input-container">
+          <label class='popup__label' for="enterPassword">Пароль</label>
+          <input id='enterPassword' minlength='8' required type="password" name="password" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+          <span id="error-enterPassword" class="error-message">Ошибка</span>
+        </div>
+          <p id="errorsignUpForm" class="error-message server-message-error">Такой пользователь уже существует</p>
+          <button id='enterSubmit' disabled class="button popup__button popup__button_disabled">Войти</button>
+      </form>
+      <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignUp'>Зарегистрироваться</span></p>
+    </template>
+
+    <template id='sign-up-popup'>
+      <h3 class="popup__title">Регистрация</h3>
+      <form class="popup__form" novalidate name="signUp">
+        <div class="input-container">
+          <label class='popup__label' for="signUpEmail">Email</label>
+          <input id='signUpEmail' type="text" required name="email" class="popup__input popup__input_type_email" placeholder="Введите почту">
+          <span id="error-signUpEmail" class="error-message">error</span>
+        </div>
+        <div class="input-container">
+          <label class='popup__label' for="signUpPassword">Пароль</label>
+          <input id='signUpPassword' minlength = '8' required type="password" name="password" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+          <span id="error-signUpPassword" class="error-message">error</span>
+        </div>
+        <div class="input-container">
+          <label class='popup__label' for="signUpName">Имя</label>
+          <input id='signUpName' maxlength = '30' required type="text" name="name" class="popup__input popup__input_type_name" placeholder="Введите свое имя">
+          <span id="error-signUpName" class="error-message">error</span>
+        </div>
+          <p id="errorsignUpForm" class="error-message server-message-error">Такой пользователь уже существует</p>
+          <button id='registraitionSubmit' disabled class="button popup__button popup__button_disabled">Зарегистрироваться</button>
+      </form>
+      <p class='popup__navigation'>или<span class='popup__navigation popup__navigation_ref' id='navToSignIn'>Войти</span></p>
+    </template>
+
+    <template id='success-popup'>
+      <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+      <p class='popup__navigation popup__navigation_ref' id='navAfterSuccess'>Выполнить вход</p>
+    </template>
+
+    <template id='bookmark'>
+      <svg class='card__item mark' width="14" height="19" viewBox="0 0 14 19" fill="none"  xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.38218 12.7137L1 16.9425V1L13 1V16.9425L7.61782 12.7137L7 12.2283L6.38218 12.7137Z" stroke="#B6BCBF" stroke-width="2"/>
+      </svg>
+    </template>
+
+  </div>
+  <script src="<%=htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+</html>

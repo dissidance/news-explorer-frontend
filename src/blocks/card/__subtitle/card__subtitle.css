@@ -1,0 +1,22 @@
+.card__subtitle {
+  margin: 0 24px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  /* width: calc(100% - 48px); */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .card__subtitle {
+    margin: 0 16px 18px;
+    overflow: hidden;
+  	display: -webkit-box;
+    -webkit-line-clamp: 4;
+    width: calc(100% - 32px);
+  }
+}

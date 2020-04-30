@@ -1,0 +1,16 @@
+.card__image {
+  width: 100%;
+  padding-top: 68%;
+  margin: 0;
+  border: none;
+  background-image: url(../../../images/no_img_medium.png);
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 1024px) {
+  .card__image {
+    font-size: 22px;
+    line-height: 24px;
+  }
+}

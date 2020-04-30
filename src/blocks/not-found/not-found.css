@@ -1,0 +1,15 @@
+@import url(./__heading/not-found__heading.css);
+@import url(./__image/not-found__image.css);
+
+.not-found {
+  display: none;
+  flex-direction: column;
+  justify-self: center;
+  min-height: 374px;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}

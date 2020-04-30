@@ -1,0 +1,7 @@
+.card__item_marked {
+  fill: #2F71E5;
+}
+
+.card__item_marked > path {
+  stroke: #2F71E5;
+}

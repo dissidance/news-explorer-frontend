@@ -1,0 +1,63 @@
+@import url(./__date/card__date.css);
+@import url(./__image/card__image.css);
+@import url(./__subtitle/card__subtitle.css);
+@import url(./__title/card__title.css);
+@import url(./__source/card__source.css);
+@import url(./__item-wrapper/card__item-wrapper.css);
+@import url(./__item/card__item.css);
+@import url(./__item/_marked/cards__item_marked.css);
+@import url(./__item/_keyword/card__item_keyword.css);
+@import url(./__control/card__control.css);
+@import url(./__item/_hidden/card__item_hidden.css);
+/* @import url(./__info-wrapper/card__info-wrapper.css); */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 576px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.card:hover {
+  box-shadow: 0 20px 100px rgba(104, 104, 104, 0.1);
+  transition: box-shadow 0.2s linear 0.1s;
+}
+
+@media screen and (max-width: 1023px) {
+  .card {
+    height: 470px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    min-height: 430px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    min-height: 470px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    min-height: 540px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card {
+    min-height: 500px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .card {
+    min-height: 446px;
+  }
+}

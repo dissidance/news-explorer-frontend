@@ -1,0 +1,8 @@
+.card__item {
+  margin: auto;
+  padding: 0 13px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 12px;
+}

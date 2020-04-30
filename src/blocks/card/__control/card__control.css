@@ -1,0 +1,23 @@
+.card__control {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* .card__control:hover > .hint {
+  display: flex;
+} */
+
+.card__control:hover > .mark {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .card__control {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}

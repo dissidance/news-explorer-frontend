@@ -1,0 +1,11 @@
+.text_about {
+  width: 90%;
+  margin-left: 0;
+}
+
+@media screen and (max-width: 650px) {
+  .text_about {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+  }
+}
