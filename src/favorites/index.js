@@ -62,10 +62,11 @@ const renderKeywords = (cards) => {
   } else {
     str1 = keywords.slice(0, -1).reduce((acc, curr) => {
       // eslint-disable-next-line no-param-reassign
-      acc += `${curr},`;
+      acc += `${curr}, `;
       return acc;
     }, '');
     str1 += keywords[keywords.length - 1];
+    keywordsMain.textContent = str1;
     keywordsBetween.textContent = '';
     keywordsOthers.textContent = '';
   }
